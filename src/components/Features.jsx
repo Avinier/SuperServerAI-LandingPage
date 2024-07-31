@@ -47,14 +47,14 @@ function Features() {
       <div className="absolute left-0 right-0 h-[150%] bg-primary transform -skew-y-3 origin-top-left z-0"></div>
 
       <div className="container mx-auto px-4 relative z-10" ref={containerRef}>
-        <h2 className="text-3xl lg:text-4xl font-bold text-center font-heading text-background pt-16 lg:pt-[150px]">
+        <h2 className="text-3xl lg:text-4xl font-bold text-center font-heading text-background pt-16 lg:pt-[100px]">
           Our Features
         </h2>
         <p className="text-lg lg:text-xl font-body text-center text-background mb-7 mt-5 px-4">
           We offer a wide range of features blah blah blah which helps the user
           lbah blah blah
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 lg:gap-8">
+        <div className="w-[90%] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 lg:gap-8">
           {features.map((feature, index) => (
             <div
               key={index}

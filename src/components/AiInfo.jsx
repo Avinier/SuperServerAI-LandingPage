@@ -27,7 +27,7 @@ function AiInfo() {
       <h2 className="text-3xl md:text-4xl font-heading text-center text-text">
         What makes us different
       </h2>
-      <p className="text-lg md:text-xl font-body text-center text-text mb-7 mt-5">
+      <p className="text-lg md:text-xl font-body text-center text-text mb-2 mt-5">
         Our custom trained LLM will help you blah blah
       </p>
 
@@ -55,7 +55,7 @@ function AiInfo() {
         <img
           src="/images/ai-image2.png"
           alt="ai-image"
-          className="object-contain w-full h-full max-w-[1000px] mx-auto rounded-md transition-transform duration-300 animate-float"
+          className="object-contain w-full h-full max-w-[800px] mx-auto rounded-md transition-transform duration-300 animate-float"
         />
         {textBoxes.map((box, index) => (
           <div

@@ -111,10 +111,10 @@ const contentData = {
 const PersonaDropdown = ({ selectedPersona, setSelectedPersona }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="relative w-full md:w-fit mx-auto my-4 md:my-7">
+    <div className="relative w-full md:w-fit mx-auto my-3 md:my-5">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-accent text-text px-4 md:px-[30px] py-3 md:py-[5px] md:pt-[7px] w-full md:w-[400px] h-[60px] md:h-[75px] mx-auto rounded-md text-base md:text-[1.4rem] font-body flex items-center justify-between transition-all duration-300 hover:shadow-lg"
+        className="bg-accent text-text px-3 md:px-6 py-2 md:py-3 w-full md:w-80 h-12 md:h-16 mx-auto rounded-md text-sm md:text-base font-body flex items-center justify-between transition-all duration-300 hover:shadow-lg"
       >
         <div className="w-fit mx-auto flex items-center">
           <span className="mr-2">
@@ -123,7 +123,7 @@ const PersonaDropdown = ({ selectedPersona, setSelectedPersona }) => {
           <span>{personas.find((p) => p.id === selectedPersona).label}</span>
         </div>
         <svg
-          className="w-5 h-5"
+          className="w-4 h-4"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -138,7 +138,7 @@ const PersonaDropdown = ({ selectedPersona, setSelectedPersona }) => {
         </svg>
       </button>
       {isOpen && (
-        <div className="absolute mt-2 w-full bg-background text-text rounded-md shadow-lg z-10">
+        <div className="absolute mt-1 w-full bg-background text-text rounded-md shadow-lg z-10">
           {personas.map((persona) => (
             <button
               key={persona.id}
@@ -146,7 +146,7 @@ const PersonaDropdown = ({ selectedPersona, setSelectedPersona }) => {
                 setSelectedPersona(persona.id);
                 setIsOpen(false);
               }}
-              className="block w-full text-left px-4 py-2 font-body hover:bg-gray-100"
+              className="block w-full text-left px-3 py-2 text-sm md:text-base font-body hover:bg-gray-100"
             >
               <span className="mr-2">{persona.icon}</span>
               <span>{persona.label}</span>
@@ -157,12 +157,13 @@ const PersonaDropdown = ({ selectedPersona, setSelectedPersona }) => {
     </div>
   );
 };
+
 const ContentSection = ({ image, info, index }) => {
   const [ref, isInView] = useInView({ threshold: 0.5 });
   return (
     <div
       ref={ref}
-      className={`flex flex-col md:flex-row items-center gap-4 md:gap-8 w-full md:w-[70%] mx-auto mb-8 md:mb-16 ${
+      className={`flex flex-col md:flex-row items-center gap-3 md:gap-6 w-full md:w-4/5 mx-auto mb-6 md:mb-12 ${
         index % 2 === 0 ? "" : "md:flex-row-reverse"
       } ${
         isInView
@@ -170,20 +171,22 @@ const ContentSection = ({ image, info, index }) => {
           : "opacity-0 translate-y-10"
       }`}
     >
-      <div className="flex-1 px-4 md:px-0">
-        <p className="text-background text-base md:text-[1.3rem] font-body my-3 md:m-5">
+      <div className="flex-1 px-3 md:px-0">
+        <p className="text-background text-sm md:text-base font-body my-2 md:m-4">
           {info}
         </p>
       </div>
       <div className="flex-1">
         <img
           src={image}
-          className="w-full md:w-[500px] object-cover rounded-lg shadow-lg my-3 md:m-5"
+          className="w-full md:w-96 object-cover rounded-lg shadow-lg my-2 md:m-4"
+          alt="Workflow"
         />
       </div>
     </div>
   );
 };
+
 const WorkFlow = () => {
   const [selectedPersona, setSelectedPersona] = useState(personas[0].id);
   const [isChanging, setIsChanging] = useState(false);
@@ -197,8 +200,8 @@ const WorkFlow = () => {
     }, 300);
   };
   return (
-    <section className="bg-secondary min-h-screen text-white p-4 md:p-8 pb-12 md:pb-20">
-      <h2 className="text-2xl md:text-4xl font-bold text-center font-heading text-white pt-16 md:pt-[250px] mb-6 md:mb-8">
+    <section className="bg-secondary min-h-screen text-white p-3 md:p-6 pb-10 md:pb-16">
+      <h2 className="text-xl md:text-3xl font-bold text-center font-heading text-white pt-12 md:pt-20 mb-5 md:mb-6">
         What types of users use our product
       </h2>
       <PersonaDropdown
@@ -206,7 +209,7 @@ const WorkFlow = () => {
         setSelectedPersona={handlePersonaChange}
       />
       <div
-        className={`mt-8 md:mt-16 transition-opacity duration-300 ease-in-out ${
+        className={`mt-6 md:mt-12 transition-opacity duration-300 ease-in-out ${
           isChanging ? "opacity-0" : "opacity-100"
         }`}
       >
@@ -218,10 +221,10 @@ const WorkFlow = () => {
               : "opacity-0 translate-y-10"
           }`}
         >
-          <h2 className="text-xl md:text-2xl text-center font-body text-background mb-3 md:mb-4">
+          <h2 className="text-lg md:text-xl text-center font-body text-background mb-2 md:mb-3">
             {content.title}
           </h2>
-          <p className="text-background text-base md:text-xl text-center font-body mb-8 md:mb-12 px-4 md:px-0">
+          <p className="text-background text-sm md:text-base text-center font-body mb-6 md:mb-10 px-3 md:px-0">
             {content.description}
           </p>
         </div>

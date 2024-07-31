@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-
 const Logo = () => {
   return (
     <div className="flex-shrink-0">
-      <a href="#" className="text-2xl lg:text-3xl font-heading text-primary">
-        SuperServer<span className="text-accent text-3xl lg:text-4xl">.</span>AI
+      <a href="#" className="text-xl lg:text-2xl font-heading text-primary">
+        SuperServer<span className="text-accent text-2xl lg:text-3xl">.</span>AI
       </a>
     </div>
   );
@@ -12,7 +11,7 @@ const Logo = () => {
 const NavItem = ({ title, href, subitems, isMobile, closeMenu }) => {
   const [isOpen, setIsOpen] = useState(false);
   const navItemStyle =
-    "text-gray-600 font-body hover:text-accent text-base lg:text-[1.4rem] flex items-center";
+    "text-gray-600 font-body hover:text-accent text-sm lg:text-base flex items-center";
   if (subitems) {
     return (
       <div className={`relative group ${isMobile ? "w-full" : ""}`}>
@@ -45,23 +44,23 @@ const Dropdown = ({ subitems, isMobile }) => {
     <div
       className={`${
         isMobile ? "relative" : "absolute"
-      } left-0 mt-2 w-64 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50`}
+      } left-0 mt-2 w-52 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50`}
     >
       <div className="py-1">
         {subitems.map((section, index) => (
-          <div key={index} className="px-4 py-2">
-            <h3 className="text-sm font-semibold text-gray-900">
+          <div key={index} className="px-3 py-2">
+            <h3 className="text-xs font-semibold text-gray-900">
               {section.title}
             </h3>
             {section.items.map((item, itemIndex) => (
               <div key={itemIndex}>
                 <a
                   href={item.href}
-                  className="block px-4 py-2 text-sm text-primary hover:bg-gray-100"
+                  className="block px-3 py-2 text-xs text-primary hover:bg-gray-100"
                 >
                   {item.title}
                 </a>
-                <p className="px-4 py-1 text-xs text-gray-500">
+                <p className="px-3 py-1 text-xs text-gray-500">
                   {item.description}
                 </p>
               </div>
@@ -75,7 +74,7 @@ const Dropdown = ({ subitems, isMobile }) => {
 const Arrow = ({ isOpen }) => {
   return (
     <svg
-      className={`ml-1 h-5 w-5 transform transition-transform duration-200 ${
+      className={`ml-1 h-4 w-4 transform transition-transform duration-200 ${
         isOpen ? "rotate-180" : ""
       }`}
       xmlns="http://www.w3.org/2000/svg"
@@ -90,6 +89,7 @@ const Arrow = ({ isOpen }) => {
     </svg>
   );
 };
+
 const navItems = [
   { title: "Why Us", href: "#" },
   {
@@ -143,14 +143,14 @@ function Header() {
     setIsMenuOpen(false);
   };
   return (
-    <header className="bg-background shadow-md hover:shadow-lg py-4 lg:py-[20px] w-full flex justify-around sticky top-0 z-10">
-      <div className="container px-4 lg:px-10">
-        <div className="flex items-center justify-between h-16">
+    <header className="bg-background shadow-md hover:shadow-lg py-3 lg:py-4 w-full flex justify-around sticky top-0 z-10">
+      <div className="container px-3 lg:px-8">
+        <div className="flex items-center justify-between h-12">
           <Logo />
           {/* Hamburger menu for mobile */}
           <button className="md:hidden" onClick={toggleMenu}>
             <svg
-              className="w-6 h-6"
+              className="w-5 h-5"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -164,14 +164,13 @@ function Header() {
               />
             </svg>
           </button>
-
           {/* Mobile menu */}
           <div
             className={`absolute top-full w-fit left-0 bg-background md:hidden ${
               isMenuOpen ? "block" : "hidden"
             }`}
           >
-            <nav className="flex flex-col space-y-4 p-4">
+            <nav className="flex flex-col space-y-3 p-3">
               {navItems.map((item, index) => (
                 <NavItem
                   key={index}
@@ -182,13 +181,13 @@ function Header() {
               ))}
               <a
                 href="#"
-                className="text-gray-600 font-body hover:text-gray-900 text-base lg:text-[1.4rem]"
+                className="text-gray-600 font-body hover:text-gray-900 text-sm lg:text-base"
                 onClick={closeMenu}
               >
                 Sign in
               </a>
               <button
-                className="bg-secondary text-text px-4 py-2 rounded-md text-base lg:text-[1.4rem] font-body transition-all duration-300 hover:bg-accent hover:shadow-lg transform hover:scale-105 hover:-translate-y-1"
+                className="bg-secondary text-text px-3 py-1.5 rounded-md text-sm lg:text-base font-body transition-all duration-300 hover:bg-accent hover:shadow-lg transform hover:scale-105 hover:-translate-y-1"
                 onClick={closeMenu}
               >
                 Sign Up
@@ -197,20 +196,20 @@ function Header() {
           </div>
 
           {/* Desktop menu */}
-          <nav className="hidden md:flex space-x-10">
+          <nav className="hidden md:flex space-x-8">
             {navItems.map((item, index) => (
               <NavItem key={index} {...item} />
             ))}
           </nav>
 
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-3">
             <a
               href="#"
-              className="text-gray-600 font-body hover:text-gray-900 text-[1.4rem] mt-[5px] mr-[10px]"
+              className="text-gray-600 font-body hover:text-gray-900 text-base mt-1 mr-2"
             >
               Sign in
             </a>
-            <button className="bg-secondary text-text px-[30px] py-[5px] pt-[7px] rounded-md text-[1.4rem] font-body transition-all duration-300 hover:bg-accent hover:shadow-lg transform hover:scale-105 hover:-translate-y-1">
+            <button className="bg-secondary text-text px-6 py-1 pt-1.5 rounded-md text-base font-body transition-all duration-300 hover:bg-accent hover:shadow-lg transform hover:scale-105 hover:-translate-y-1">
               Sign Up
             </button>
           </div>
