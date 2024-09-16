@@ -1,16 +1,72 @@
 import React, { useEffect, useRef, useState } from "react";
-import "../styles/features.css";
-function Features() {
+
+
+const FeatureCard = ({ feature, index, visibleFeatures }) => (
+  <div
+    className={`bg-white rounded-xl shadow-lg overflow-hidden h-64 transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:shadow-2xl ${visibleFeatures.includes(index) ? "animate-fadeInUp" : "opacity-0"
+      }`}
+  >
+    <div className="p-6 h-full flex flex-col relative group">
+      <div className="flex flex-col items-center justify-center h-full transition-all duration-300 ease-in-out group-hover:opacity-0">
+        <div className="mb-4 text-primary text-4xl">{feature.icon}</div>
+        <h3 className="font-semibold text-xl font-heading text-center text-gray-800">
+          {feature.title}
+        </h3>
+      </div>
+
+      <div className="absolute inset-0 p-6 flex items-center justify-center bg-secondary cursor-pointer text-white opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100">
+        <p className="text-center font-body text-bold text-xl">{feature.description}</p>
+      </div>
+    </div>
+  </div>
+);
+
+const Features = () => {
   const features = [
-    { icon: "⏱️", title: "Time Tracking" },
-    { icon: "📊", title: "Performance Management" },
-    { icon: "📈", title: "Insights and Reporting" },
-    { icon: "🆕", title: "New Business" },
-    { icon: "🌐", title: "Remote Teams" },
+    {
+      icon: (
+        <img src="/images/chatbot.png" alt="Deployment Chatbot" className="size-36 mx-auto" />
+      ),
+      title: "Deployment Chatbot",
+      description: "Deploy your code with ease using our AI-powered chatbot."
+    },
+    {
+      icon: (
+        <img src="/images/dashboard.png" className="size-36 mx-auto" />
+
+      ),
+      title: "Intuitive Dashboard",
+      description: "Manage your code and gain AI-driven insights through our intuitive dashboard."
+    },
+    {
+      icon: (
+        <img src="/images/shield.png" className="size-36 mx-auto" />
+      ),
+      title: "Maintenance and Security",
+      description: "Enjoy continuous security monitoring and automated maintenance of your code."
+    },
+    {
+      icon: (
+        <img src="/images/database-storage.png" className="size-36 mx-auto" />
+
+      ),
+      title: "DB Profiling",
+      description: "Optimize your database performance with our advanced DB profiling feature."
+    },
+    {
+      icon: (
+        <img src="/images/cloud.png" className="size-36 mx-auto" />
+
+      ),
+      title: "Enterprise-Grade Cloud Management",
+      description: "Focus on your code while we manage your cloud infrastructure at an enterprise level."
+    },
   ];
+
   const [animationStarted, setAnimationStarted] = useState(false);
   const [visibleFeatures, setVisibleFeatures] = useState([]);
   const containerRef = useRef(null);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -18,8 +74,9 @@ function Features() {
           setAnimationStarted(true);
         }
       },
-      { threshold: 0.8 }
+      { threshold: 0.2 }
     );
+
     if (containerRef.current) {
       observer.observe(containerRef.current);
     }
@@ -42,40 +99,33 @@ function Features() {
   }, [animationStarted]);
 
   return (
-    <section className="pb-20 relative bg-background overflow-hidden">
-      {/* Ribbon background */}
-      <div className="absolute left-0 right-0 h-[150%] bg-primary transform -skew-y-3 origin-top-left z-0"></div>
-
+    <section className="py-20 relative bg-primary overflow-hidden rounded-tr-[120px] rounded-br-[120px]">
       <div className="container mx-auto px-4 relative z-10" ref={containerRef}>
-        <h2 className="text-3xl lg:text-4xl font-bold text-center font-heading text-background pt-16 lg:pt-[100px]">
+        <h2 className="text-[50px] md:text-5xl font-heading text-center text-white">
           Our Features
         </h2>
-        <p className="text-lg lg:text-xl font-body text-center text-background mb-7 mt-5 px-4">
-          We offer a wide range of features blah blah blah which helps the user
-          lbah blah blah
+        <p className="text-md md:text-2xl lg:text-xl lg:my-6 text-bold text-center font-body text-white max-w-3xl mx-auto">
+          Our features ensure that you can focus on building your code while we handle the deployment, maintenance, and security.
         </p>
-        <div className="w-[90%] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 lg:gap-8">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className={`bg-white rounded-lg shadow-lg p-6 transform transition duration-500 hover:scale-105 ${
-                visibleFeatures.includes(index)
-                  ? "animate-fadeInUp"
-                  : "opacity-0"
-              }`}
-            >
-              <div className="text-4xl lg:text-5xl mb-4 bg-blue-100 rounded-full w-16 h-16 lg:w-20 lg:h-20 flex items-center justify-center mx-auto">
-                {feature.icon}
+        <div className="grid grid-cols-1 gap-8 lg:w-[80%] mx-auto">
+          {/* Top row with 3 cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.slice(0, 3).map((feature, index) => (
+              <FeatureCard key={index} feature={feature} index={index} visibleFeatures={visibleFeatures} />
+            ))}
+          </div>
+          {/* Bottom row with 2 centered cards */}
+          <div className="flex justify-center gap-8">
+            {features.slice(3, 5).map((feature, index) => (
+              <div key={index + 3} className="w-full sm:w-1/2 lg:w-1/3">
+                <FeatureCard feature={feature} index={index + 3} visibleFeatures={visibleFeatures} />
               </div>
-              <h3 className="font-semibold font-body text-body text-lg lg:text-xl text-center">
-                {feature.title}
-              </h3>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
-}
+};
 
 export default Features;

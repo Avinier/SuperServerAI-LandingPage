@@ -1,54 +1,111 @@
 import React from "react";
+const PricingCard = ({ title, price, description, features, buttonText, highlight }) => (
+  <div className="flex flex-col min-h-[50%] min-w-[25%] p-6 bg-white rounded-lg shadow-lg transition ease-in-out hover:-translate-y-1 hover:scale-105 hover:cursor-pointer duration-300">
+    <div className="flex-grow">
+      <h2 className="text-xl font-heading text-center mb-4 text-blue-600">{title}</h2>
+      <div className="text-center mb-4">
+        <span className="text-3xl font-heading">{price}</span>
+        {description && <p className="text-sm font-body text-gray-600 mt-2">{description}</p>}
+      </div>
+      <div className="space-y-2">
+        {features.map((feature, index) => (
+          <div key={index} className="flex items-center">
+            <svg className="w-4 h-4 mr-2 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span className="text-sm">{feature}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+    <div className="mt-6">
+      <button className="w-full bg-primary text-white py-2 px-4 rounded-md hover:bg-gray-800 transition-colors">
+        {buttonText}
+      </button>
+    </div>
+  </div>
+);
+
+
 function Pricing() {
   const plans = [
     {
-      name: "Simple",
-      price: "$40/mo + $6/mo per person",
-      description:
-        "Best for new businesses and startups paying people in one state.",
+      title: "DEVELOPER",
+      price: "$0",
+      description: "for first 5 components",
+      subDescription: "Ideal for developers.",
+      additionalInfo: "$5/additional component",
+      resourceUsage: "+ resource usage ($100 credits per month free)",
+      features: [
+        "Unlimited projects",
+        "2 developers",
+        "Private repos for paid components only",
+        "Scales down to 0 when not in use and scales up to 1 pod"
+      ],
+      buttonText: "Get Started"
     },
     {
-      name: "Plus",
-      price: "$80/mo + $12/mo per person",
-      description:
-        "Run payroll in 2 or more states and get built-in time tracking and HR tools.",
+      title: "TEAM",
+      price: "$150",
+      description: "/component per month",
+      subDescription: "Ideal for teams collaboratively building cloud native apps.",
+      additionalInfo: "Sign up and upgrade to Team with your work email to get 5 components free for 6 months",
+      resourceUsage: "+ resource usage ($1,000 credits for 6 months free)",
+      features: [
+        "Unlimited projects",
+        "Unlimited developers",
+        "Private or public repo",
+        "Scale up without restrictions",
+        "You decide how to scale down",
+        "Supports Private Data Planes"
+      ],
+      buttonText: "Get Started",
+      highlight: true
     },
     {
-      name: "Premium",
-      price: "$120/mo + $12/mo per person",
-      description:
-        "You'll get a dedicated success liaison to meet your team's complex needs.",
-    },
+      title: "ENTERPRISE",
+      price: "Custom",
+      description: "Ideal for companies building large-scale distributed apps.",
+      subDescription: "Discounts offered based on annual commitments",
+      features: [
+        "Unlimited projects",
+        "Unlimited developers",
+        "Private or public repo",
+        "Scale up without restrictions",
+        "You decide how to scale down",
+        "Pass-through infrastructure cost",
+        "Supports Private Data Planes"
+      ],
+      buttonText: "Contact Us"
+    }
   ];
+
   return (
-    <section className="py-12 md:py-20 bg-secondary">
+    <section className="py-12 md:py-20 bg-background">
       <div className="container mx-auto px-4">
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 font-heading text-text">
-          Choose Your Plan
+        <h2 className="text-[50px] md:text-5xl font-heading text-center text-text">
+          Pricing
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <p className="text-md md:text-2xl lg:text-xl text-bold text-center font-body text-text max-w-3xl mx-auto">
+          We offer three tier services. blah blah
+        </p>
+        <div className="flex flex-col md:flex-row bg-background justify-center items-stretch space-y-6 md:space-y-0 md:space-x-6 p-6">
           {plans.map((plan, index) => (
-            <div
+            <PricingCard
               key={index}
-              className="bg-primary mx-0 md:mx-4 my-4 md:my-6 p-6 md:p-8 rounded-lg shadow-md"
-            >
-              <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 font-heading text-background">
-                {plan.name}
-              </h3>
-              <p className="text-lg md:text-xl font-semibold mb-3 md:mb-4 font-body text-background">
-                {plan.price}
-              </p>
-              <p className="mb-6 md:mb-8 font-body text-gray-300 text-sm md:text-base">
-                {plan.description}
-              </p>
-              <button className="w-full bg-accent text-background py-2 rounded-md hover:bg-secondary font-body text-sm md:text-base">
-                Choose Plan
-              </button>
-            </div>
+              title={plan.title}
+              price={plan.price}
+              description={plan.description}
+              features={plan.features}
+              buttonText={plan.buttonText}
+              highlight={plan.highlight}
+            />
           ))}
         </div>
+
       </div>
     </section>
   );
 }
 export default Pricing;
+

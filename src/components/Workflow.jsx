@@ -3,12 +3,13 @@ import React, { useState, useEffect, useRef } from "react";
 const useInView = (options) => {
   const ref = useRef(null);
   const [isInView, setIsInView] = useState(false);
-
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
-      setIsInView(entry.isIntersecting);
+      if (entry.isIntersecting) {
+        setIsInView(true);
+        observer.unobserve(entry.target);
+      }
     }, options);
-
     if (ref.current) {
       observer.observe(ref.current);
     }
@@ -19,9 +20,11 @@ const useInView = (options) => {
       }
     };
   }, [ref, options]);
-
   return [ref, isInView];
 };
+
+
+
 const personas = [
   { id: "llms", label: "I DEVELOP WITH LLMS", icon: "👨‍💻" },
   { id: "models", label: "I TRAIN MODELS", icon: "🧠" },
@@ -37,7 +40,7 @@ const contentData = {
     sections: [
       {
         image: "/images/workflow-image1.jpg",
-        info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis",
+        info: "FIRST Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis",
       },
       {
         image: "/images/workflow-image1.jpg",
@@ -56,7 +59,7 @@ const contentData = {
     sections: [
       {
         image: "/images/workflow-image1.jpg",
-        info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis",
+        info: "SECOND Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis",
       },
       {
         image: "/images/workflow-image1.jpg",
@@ -75,7 +78,7 @@ const contentData = {
     sections: [
       {
         image: "/images/workflow-image1.jpg",
-        info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis",
+        info: "THIRD Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis",
       },
       {
         image: "/images/workflow-image1.jpg",
@@ -94,7 +97,7 @@ const contentData = {
     sections: [
       {
         image: "/images/workflow-image1.jpg",
-        info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis",
+        info: " FOURTHLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis",
       },
       {
         image: "/images/workflow-image1.jpg",
@@ -114,9 +117,9 @@ const PersonaDropdown = ({ selectedPersona, setSelectedPersona }) => {
     <div className="relative w-full md:w-fit mx-auto my-3 md:my-5">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-accent text-text px-3 md:px-6 py-2 md:py-3 w-full md:w-80 h-12 md:h-16 mx-auto rounded-md text-sm md:text-base font-body flex items-center justify-between transition-all duration-300 hover:shadow-lg"
+        className="bg-accent text-text px-3 md:px-6 py-5 md:py-3 w-full md:w-80 h-12 md:h-16 mx-auto rounded-md text-sm md:text-base font-body flex items-center justify-between transition-all duration-300 hover:shadow-lg"
       >
-        <div className="w-fit mx-auto flex items-center">
+        <div className="w-fit mx-auto flex items-center text-text">
           <span className="mr-2">
             {personas.find((p) => p.id === selectedPersona).icon}
           </span>
@@ -138,7 +141,7 @@ const PersonaDropdown = ({ selectedPersona, setSelectedPersona }) => {
         </svg>
       </button>
       {isOpen && (
-        <div className="absolute mt-1 w-full bg-background text-text rounded-md shadow-lg z-10">
+        <div className="absolute mt-1 w-full bg-background text-text text-bold rounded-md shadow-lg z-10">
           {personas.map((persona) => (
             <button
               key={persona.id}
@@ -158,30 +161,22 @@ const PersonaDropdown = ({ selectedPersona, setSelectedPersona }) => {
   );
 };
 
-const ContentSection = ({ image, info, index }) => {
-  const [ref, isInView] = useInView({ threshold: 0.5 });
+const ContentSection = ({ image, info, index, isVisible }) => {
   return (
     <div
-      ref={ref}
-      className={`flex flex-col md:flex-row items-center gap-3 md:gap-6 w-full md:w-4/5 mx-auto mb-6 md:mb-12 ${
-        index % 2 === 0 ? "" : "md:flex-row-reverse"
-      } ${
-        isInView
-          ? "opacity-100 translate-y-0 transition-all duration-1000 ease-out"
-          : "opacity-0 translate-y-10"
-      }`}
+      className={`flex flex-col md:flex-row items-center gap-4 md:gap-6 w-full mx-auto mb-8 md:mb-12 ${index % 2 === 0 ? "" : "md:flex-row-reverse"} ${isVisible ? "opacity-100 translate-y-0 transition-all duration-500 ease-out" : "opacity-0 translate-y-5"}`}
     >
-      <div className="flex-1 px-3 md:px-0">
-        <p className="text-background text-sm md:text-base font-body my-2 md:m-4">
-          {info}
-        </p>
-      </div>
-      <div className="flex-1">
+      <div className="flex-shrink-0 w-full md:w-1/2 lg:w-2/5">
         <img
           src={image}
-          className="w-full md:w-96 object-cover rounded-lg shadow-lg my-2 md:m-4"
+          className="w-full h-auto object-cover rounded-lg shadow-md"
           alt="Workflow"
         />
+      </div>
+      <div className="flex-1 mt-4 md:mt-0">
+        <p className="text-text text-sm leading-snug md:text-base md:leading-normal font-body">
+          {info}
+        </p>
       </div>
     </div>
   );
@@ -190,18 +185,27 @@ const ContentSection = ({ image, info, index }) => {
 const WorkFlow = () => {
   const [selectedPersona, setSelectedPersona] = useState(personas[0].id);
   const [isChanging, setIsChanging] = useState(false);
+  const [isContentVisible, setIsContentVisible] = useState(false);
   const content = contentData[selectedPersona];
-  const [titleRef, isTitleInView] = useInView({ threshold: 0.5 });
+  const [contentRef, isInView] = useInView({ threshold: 0.1 });
+  useEffect(() => {
+    if (isInView) {
+      setIsContentVisible(true);
+    }
+  }, [isInView]);
   const handlePersonaChange = (newPersona) => {
     setIsChanging(true);
+    setIsContentVisible(false);
     setTimeout(() => {
       setSelectedPersona(newPersona);
       setIsChanging(false);
+      setIsContentVisible(true);
     }, 300);
   };
+
   return (
-    <section className="bg-secondary min-h-screen text-white p-3 md:p-6 pb-10 md:pb-16">
-      <h2 className="text-xl md:text-3xl font-bold text-center font-heading text-white pt-12 md:pt-20 mb-5 md:mb-6">
+    <section className="bg-background min-h-screen text-white mb-[40px] p-2 md:p-4 pb-6 md:pb-8">
+      <h2 className="text-2xl md:text-4xl font-bold text-center font-heading text-text pt-6 md:pt-10 mb-3 md:mb-4">
         What types of users use our product
       </h2>
       <PersonaDropdown
@@ -209,32 +213,33 @@ const WorkFlow = () => {
         setSelectedPersona={handlePersonaChange}
       />
       <div
-        className={`mt-6 md:mt-12 transition-opacity duration-300 ease-in-out ${
-          isChanging ? "opacity-0" : "opacity-100"
-        }`}
+        ref={contentRef}
+        className={`mt-4 md:mt-6 gap-3 sm:gap-6 w-[70%] mx-auto mb-6 transition-opacity duration-300 ease-in-out ${isChanging ? "opacity-0" : "opacity-100"}`}
       >
         <div
-          ref={titleRef}
-          className={`${
-            isTitleInView
-              ? "opacity-100 translate-y-0 transition-all duration-1000 ease-out"
-              : "opacity-0 translate-y-10"
-          }`}
+          className={`${isContentVisible ? "opacity-100 translate-y-0 transition-all duration-500 ease-out" : "opacity-0 translate-y-5"}`}
         >
-          <h2 className="text-lg md:text-xl text-center font-body text-background mb-2 md:mb-3">
+          <h2 className="text-base md:text-lg text-center font-heading text-text mb-3 md:mb-2">
             {content.title}
           </h2>
-          <p className="text-background text-sm md:text-base text-center font-body mb-6 md:mb-10 px-3 md:px-0">
+          <p className="text-background text-xl md:text-sm text-center font-body text-text mb-3 md:mb-4 px-2 md:px-0 max-w-2xl mx-auto">
             {content.description}
           </p>
         </div>
-        <div>
+        <div className="space-y-4 md:space-y-6">
           {content.sections.map((section, index) => (
-            <ContentSection key={index} {...section} index={index} />
+            <ContentSection
+              key={index}
+              {...section}
+              index={index}
+              isVisible={isContentVisible}
+            />
           ))}
         </div>
       </div>
     </section>
   );
 };
+
+
 export default WorkFlow;

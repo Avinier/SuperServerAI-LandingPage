@@ -4,21 +4,28 @@
 
 @layer base {
   :root {
-    --text: #010104;
-    --background: #fbfbfe;
-    --primary: #004cff;
-    --secondary: #00a1ff;
-    --accent: #fb7346;
-    --accent2: #00B8A0;
+    --primary-bg: #F2F2F8;
+    --accent1: #DFF8FF;
+    --accent2: #F0E8FE;
+    --primary-color: #3F53F7;
+    --secondary-color: #ff6c59;
+    --text-color: #1f2937;
+    --border-color: #d1d5db;
+    --bg-white: #fefeef;
+    --bg-white2: #fffff4;
   }
+
   .dark {
-    --text: #fbfbfe;
-    --background: #07070f;
-    --primary: #004cff;
-    --secondary: #00a1ff;
-    --accent: #b93104;
-    --accent2: #00B8A0;
+    --primary-bg: #1E1E2A;
+    --accent1: #0A1A20;
+    --accent2: #1A0F2A;
+    --primary-color: #6B7CFF;
+    --secondary-color: #FF8A91;
+    --text-color: #E2E8F0;
+    --border-color: #4B5563;
+    --bg-white: #2A2A20;
   }
+
   @font-face {
     font-family: 'Gcentra';
     font-style: normal;
@@ -26,6 +33,7 @@
     font-display: swap;
     src: url(/fonts/gcentra.otf);
   }
+
   @font-face {
     font-family: 'Mont';
     font-style: normal;

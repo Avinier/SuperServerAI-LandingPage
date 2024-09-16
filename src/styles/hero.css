@@ -1,38 +1,55 @@
 @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  .animate-fade-in-up {
-    animation: fadeInUp 1s ease-out forwards;
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .animate-delay-100 {
-    animation-delay: 0.1s;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.animate-delay-100 {
+  animation-delay: 0.1s;
+}
+
+.animate-delay-200 {
+  animation-delay: 0.2s;
+}
+
+.animate-delay-300 {
+  animation-delay: 0.3s;
+}
+
+.transition-transform {
+  transition: transform 0.3s ease-in-out;
+}
+
+.hover\:scale-105:hover {
+  transform: scale(1.05);
+}
+
+.active\:scale-95:active {
+  transform: scale(0.95);
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  .animate-delay-200 {
-    animation-delay: 0.2s;
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .animate-delay-300 {
-    animation-delay: 0.3s;
-  }
-  
-  .transition-transform {
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .hover\:scale-105:hover {
-    transform: scale(1.05);
-  }
-  
-  .active\:scale-95:active {
-    transform: scale(0.95);
-  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s ease-out forwards;
+}

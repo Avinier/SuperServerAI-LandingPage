@@ -4,11 +4,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        text: "var(--text)",
-        background: "var(--background)",
-        primary: "var(--primary)",
-        secondary: "var(--secondary)",
-        accent: "var(--accent)",
+        text: "var(--text-color)",
+        background: "var(--bg-white)",
+        background2: "var(--primary-bg)",
+        primary: "var(--primary-color)",
+        secondary: "var(--secondary-color)",
+        accent: "var(--accent1)",
         accent2: "var(--accent2)",
       },
       fontSize: {
@@ -29,7 +30,7 @@ export default {
         bold: "700",
       },
       animation: {
-        float: "float 6s ease-in-out infinite",
+        float: "float 6s ease-in-out infinite"
       },
     },
   },
