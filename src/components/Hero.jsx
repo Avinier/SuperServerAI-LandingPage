@@ -1,28 +1,41 @@
 import React, { useEffect, useState } from "react";
 import "../styles/hero.css";
 
-
 function Hero() {
   const [isVisible, setIsVisible] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   useEffect(() => {
     setIsVisible(true);
   }, []);
+
+  const handleVideoClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleModalClick = (e) => {
+    // Close modal when clicking outside the video content
+    if (e.target === e.currentTarget) {
+      setIsModalOpen(false);
+    }
+  };
+
   let btnAnimation =
     "transition-all duration-300 hover:shadow-lg transform hover:scale-105 hover:-translate-y-1";
+
   return (
     <section
-      className={`bg-background flex flex-col lg:flex-row h-fit w-full items-center justify-around p-4 lg:py-[110px] lg:px-0 ${isVisible ? "animate-fade-in-up" : "opacity-0"
+      className={`bg-background flex flex-col lg:flex-row h-fit w-full items-center justify-around px-[20px] lg:py-[60px] lg:px-0 ${isVisible ? "animate-fade-in-up" : "opacity-0"
         }`}
     >
+      {/* Text Content */}
       <div className="items-center h-fit w-full lg:w-1/2 mb-6 lg:mb-0">
-        <div className="text-center lg:text-left max-w-2xl px-3">
-          <h1 className="text-xl lg:text-[50px] leading-[1.2] font-bold mb-3 font-heading text-text">
-            {" "}
-            Seamlessly deploy and manage your code, with{" "}
-            <span className="text-secondary">ZERO</span>{" "}
-            knowledge of devops.
+        <div className="text-center lg:text-left max-w-2xl px-3 ml-[40px]">
+          <h1 className="text-xl lg:text-[40px] leading-[1.2] font-bold mb-3 font-heading text-text text-center">
+            Seamlessly deploy your code, with{" "}
+            <span className="text-secondary">ZERO</span> knowledge of devops.
           </h1>
-          <p className="text-base lg:text-lg text-text mb-6 font-body">
+          <p className="text-base lg:text-lg text-text mb-6 font-body text-center">
             We aim to offer AI-powered services to small businesses and
             developers to deploy and manage their code.
           </p>
@@ -30,29 +43,61 @@ function Hero() {
             <a
               href="https://hu56kt7hdn2.typeform.com/to/vD8NjERN"
               target="_blank"
-              className={`bg-primary text-background px-5 py-2 lg:px-8 lg:py-3 rounded-md text-base lg:text-xl font-body ${btnAnimation}`}
+              rel="noopener noreferrer"
+              className={`bg-secondary text-background px-5 py-2 mx-auto lg:px-10 lg:py-3 rounded-md text-base lg:text-xl font-body ${btnAnimation}`}
             >
               Join Waitlist
             </a>
-            <button
-              className={`bg-secondary flex text-text px-5 py-2 lg:px-8 lg:py-3 rounded-md text-base lg:text-xl font-body ${btnAnimation}`}
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-7 mr-2">
-                <path fillRule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm14.024-.983a1.125 1.125 0 0 1 0 1.966l-5.603 3.113A1.125 1.125 0 0 1 9 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113Z" clipRule="evenodd" />
-              </svg>
-
-              Watch Demo
-            </button>
-            {/* <div className="rounded-lg"><iframe src="https://www.loom.com/embed/c9d0b8305c444fd9a5a165b7368aba43?sid=1846b728-438b-4eb6-b681-6bc46b3962ec" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen className="absolute w-[80%] h-[80%]"></iframe></div> */}
           </div>
         </div>
       </div>
-      <img
-        src="/images/hero-image1.jpg"
-        alt="Hiring"
-        className="object-cover h-60 lg:h-[400px] w-full lg:w-[560px] rounded-md shadow-lg transition-transform duration-300"
-      />
+
+      {/* Image and Video Container */}
+      <div className="relative w-[60%] mr-[40px] transition-transform duration-300">
+        {/* Hero Image */}
+        <img
+          src="/images/hero-image1.png"
+          alt="Hero image"
+          className="w-full"
+        />
+
+        {/* Video Thumbnail */}
+        {/* <div
+          className="absolute bottom-12 left-2 cursor-pointer"
+          onClick={handleVideoClick}
+        >
+          <div className="relative w-[260px] h-[145px]">
+            <iframe
+              src="https://www.loom.com/embed/aa2a3e920c5e43569facbfca924a6213?sid=3e2cd9bf-9945-4077-9b08-2fc24907a304"
+              allowFullScreen
+              className="absolute object-fit top-0 left-0 w-full h-full rounded-lg"
+            ></iframe>
+          </div>
+        </div> */}
+      </div>
+
+      {/* Modal with Fullscreen Video */}
+      {/* {isModalOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+          onClick={handleModalClick}
+        >
+          <div
+            className="bg-white p-4 rounded-lg relative max-w-3xl w-full mx-4"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="relative pb-[56.25%] h-0">
+              <iframe
+                src="https://www.loom.com/embed/aa2a3e920c5e43569facbfca924a6213?sid=3e2cd9bf-9945-4077-9b08-2fc24907a304"
+                allowFullScreen
+                className="absolute top-0 left-0 w-full h-full rounded-md"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      )} */}
     </section>
   );
 }
+
 export default Hero;
