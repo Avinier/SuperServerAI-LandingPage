@@ -42,13 +42,13 @@ function Hero() {
               href="https://hu56kt7hdn2.typeform.com/to/vD8NjERN"
               target="_blank"
               rel="noopener noreferrer"
-              className={`bg-secondary text-background lg:mx-auto sm:mx-12 text-center px-6 py-3 rounded-md text-base sm:text-lg font-body ${btnAnimation}`}
+              className={`bg-secondary text-background lg:mx-auto sm:mx-12 text-center px-6 py-3 rounded-md text-base sm:text-lg font-body  font-bold ${btnAnimation}`}
             >
               Join Waitlist
             </a>
             <button
               onClick={handleVideoClick}
-              className={`lg:hidden bg-primary text-background px-6 py-3 rounded-md text-base sm:text-lg font-body ${btnAnimation}`}
+              className={`lg:hidden bg-primary text-background px-6 py-3 rounded-md text-base sm:text-lg font-body font-bold ${btnAnimation}`}
             >
               Watch Demo
             </button>
