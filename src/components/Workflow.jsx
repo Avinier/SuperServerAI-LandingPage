@@ -154,7 +154,7 @@ const ContentSection = ({ image, info, index, isVisible }) => {
         />
       </div>
       <div className="flex-1 mt-6 md:mt-0">
-        <p className="text-gray-700 text-lg leading-relaxed font-medium">
+        <p className="text-gray-700 text-lg leading-relaxed font-medium font-body">
           {info}
         </p>
       </div>
@@ -180,7 +180,11 @@ const WorkFlow = () => {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
+<<<<<<< Updated upstream
         className="text-4xl md:text-4xl font-bold text-center font-heading mb-8"
+=======
+        className="text-4xl md:text-5xl font-heading font-bold text-center text-indigo-900 mb-8"
+>>>>>>> Stashed changes
       >
         Who Benefits from Our Product?
       </motion.h2>
@@ -199,10 +203,10 @@ const WorkFlow = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h3 className="text-2xl md:text-3xl font-bold text-indigo-800 mb-4">
+          <h3 className="text-2xl md:text-3xl font-heading font-bold text-indigo-800 mb-4">
             {content.title}
           </h3>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 font-body max-w-3xl mx-auto">
             {content.description}
           </p>
         </motion.div>
