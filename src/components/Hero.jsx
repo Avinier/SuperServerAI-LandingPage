@@ -1,16 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "../styles/hero.css";
 
 function Hero() {
   const [isVisible, setIsVisible] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const videoRef = useRef(null); // Ref to access the video element
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
 
   const handleVideoClick = () => {
-    setIsModalOpen(true);
+    // Open modal or make video fullscreen
+    if (videoRef.current) {
+      if (videoRef.current.requestFullscreen) {
+        videoRef.current.requestFullscreen();
+      } else if (videoRef.current.webkitRequestFullscreen) { // Safari
+        videoRef.current.webkitRequestFullscreen();
+      } else if (videoRef.current.msRequestFullscreen) { // IE11
+        videoRef.current.msRequestFullscreen();
+      }
+    }
   };
 
   const handleModalClick = (e) => {
@@ -62,22 +72,31 @@ function Hero() {
         />
 
         {/* Video Thumbnail */}
-        {/* <div
+        <div
           className="absolute bottom-12 left-2 cursor-pointer"
           onClick={handleVideoClick}
         >
-          <div className="relative w-[260px] h-[145px]">
-            <iframe
-              src="https://www.loom.com/embed/aa2a3e920c5e43569facbfca924a6213?sid=3e2cd9bf-9945-4077-9b08-2fc24907a304"
-              allowFullScreen
-              className="absolute object-fit top-0 left-0 w-full h-full rounded-lg"
-            ></iframe>
+          <div style={{ top: '-24px', left: '4px' }} className="relative w-[208px] h-[102px]">
+            <video
+              ref={videoRef} // Attach ref to the video element
+              autoPlay
+              muted
+              loop
+              playsInline
+              style={{
+                borderRadius: '10px', // Adjust the value for more or less rounding
+                pointerEvents: 'auto', // Allow click for 4ullscreen
+              }}
+            >
+              <source src="/videos/video.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </div>
-        </div> */}
+        </div>
       </div>
 
       {/* Modal with Fullscreen Video */}
-      {/* {isModalOpen && (
+      {isModalOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
           onClick={handleModalClick}
@@ -95,7 +114,7 @@ function Hero() {
             </div>
           </div>
         </div>
-      )} */}
+      )}
     </section>
   );
 }
