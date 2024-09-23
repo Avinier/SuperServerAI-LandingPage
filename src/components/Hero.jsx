@@ -1,120 +1,140 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState, useRef } from "react";
+import "../styles/hero.css";
 
-const FeatureCard = ({ feature, index, visibleFeatures }) => (
-  <div
-    className={`bg-white rounded-lg shadow-md overflow-hidden h-auto sm:h-52 transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg ${
-      visibleFeatures.includes(index) ? "animate-fadeInUp" : "opacity-0"
-    }`}
-  >
-    <div className="p-4 h-full flex flex-col relative group">
-      <div className="flex flex-col items-center justify-center h-full transition-all duration-300 ease-in-out group-hover:opacity-0">
-        <div className="mb-3 text-primary text-3xl">{feature.icon}</div>
-        <h3 className="font-semibold text-lg sm:text-xl font-heading text-center text-gray-800">
-          {feature.title}
-        </h3>
-      </div>
+function Hero() {
+  const [isVisible, setIsVisible] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const videoRef = useRef(null);
 
-      <div className="absolute inset-0 p-4 flex items-center justify-center bg-secondary cursor-pointer text-white opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100">
-        <p className="text-center font-body text-base sm:text-lg">{feature.description}</p>
-      </div>
-    </div>
-  </div>
-);
+  const handleVideoClick = () => {
+    setIsModalOpen(true);
+  };
 
-const Features = () => {
-  const features = [
-    {
-      icon: (
-        <img src="/images/chatbot.png" alt="Deployment Chatbot" className="w-12 h-12 sm:w-16 sm:h-16 mx-auto" />
-      ),
-      title: "Deployment Chatbot",
-      description: "Deploy your code with ease using our AI-powered chatbot."
-    },
-    {
-      icon: (
-        <img src="/images/dashboard.png" alt="Intuitive Dashboard" className="w-12 h-12 sm:w-16 sm:h-16 mx-auto" />
-      ),
-      title: "Intuitive Dashboard",
-      description: "Manage your code and gain AI-driven insights through our intuitive dashboard."
-    },
-    {
-      icon: (
-        <img src="/images/shield.png" alt="Maintenance and Security" className="w-12 h-12 sm:w-16 sm:h-16 mx-auto" />
-      ),
-      title: "Maintenance and Security",
-      description: "Enjoy continuous security monitoring and automated maintenance of your code."
-    },
-    {
-      icon: (
-        <img src="/images/database-storage.png" alt="DB Profiling" className="w-12 h-12 sm:w-16 sm:h-16 mx-auto" />
-      ),
-      title: "DB Profiling",
-      description: "Optimize your database performance with our advanced DB profiling feature."
-    },
-    {
-      icon: (
-        <img src="/images/cloud.png" alt="Enterprise-Grade Cloud Management" className="w-12 h-12 sm:w-16 sm:h-16 mx-auto" />
-      ),
-      title: "Enterprise-Grade Cloud Management",
-      description: "Focus on your code while we manage your cloud infrastructure at an enterprise level."
-    },
-  ];
-
-  const [animationStarted, setAnimationStarted] = useState(false);
-  const [visibleFeatures, setVisibleFeatures] = useState([]);
-  const containerRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !animationStarted) {
-          setAnimationStarted(true);
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    if (videoRef.current) {
+      videoRef.current.pause();
     }
+  };
 
-    return () => {
-      if (containerRef.current) {
-        observer.unobserve(containerRef.current);
-      }
-    };
-  }, [animationStarted]);
-
-  useEffect(() => {
-    if (animationStarted) {
-      features.forEach((_, index) => {
-        setTimeout(() => {
-          setVisibleFeatures((prev) => [...prev, index]);
-        }, index * 200);
-      });
-    }
-  }, [animationStarted]);
+  const btnAnimation =
+    "transition-all duration-300 hover:shadow-lg transform hover:scale-105 hover:-translate-y-1";
 
   return (
-    <section className="py-8 sm:py-12 relative bg-primary overflow-hidden rounded-tr-[40px] sm:rounded-tr-[80px] rounded-br-[40px] sm:rounded-br-[80px]">
-      <div className="container mx-auto px-4 relative z-10" ref={containerRef}>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading text-center text-white mb-4">
-          Our Features
-        </h2>
-        <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 text-center font-body text-white max-w-xs sm:max-w-2xl md:max-w-3xl mx-auto">
-          Our features ensure that you can focus on building your code while we handle the deployment, maintenance, and security.
-        </p>
-        <div className="grid grid-cols-1 gap-4 sm:gap-6 w-[85%] sm:w-[90%] md:w-[85%] lg:w-[75%] mx-auto">
-          {/* All cards in a single column layout for mobile, then grid for larger screens */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            {features.map((feature, index) => (
-              <FeatureCard key={index} feature={feature} index={index} visibleFeatures={visibleFeatures} />
-            ))}
+    <section
+      className={`bg-background flex flex-col lg:flex-row min-h-screen w-full items-center justify-center px-4 sm:px-6 lg:px-8 py-12 lg:py-20 ${
+        isVisible ? "animate-fade-in-up" : "opacity-0"
+      }`}
+    >
+      {/* Text Content */}
+      <div className="w-full lg:w-1/2 mb-8 lg:mb-0 lg:pr-8">
+        <div className="text-center lg:text-left max-w-xl mx-auto lg:mx-0">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl leading-tight font-bold mb-4 font-heading text-text">
+            Seamlessly deploy your code, with{" "}
+            <span className="text-secondary">ZERO</span> knowledge of devops.
+          </h1>
+          <p className="text-base sm:text-lg lg:text-xl text-text mb-6 font-body">
+            We aim to offer AI-powered services to small businesses and
+            developers to deploy and manage their code.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
+            <a
+              href="https://hu56kt7hdn2.typeform.com/to/vD8NjERN"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`bg-secondary text-background px-6 py-3 rounded-md text-base sm:text-lg font-body ${btnAnimation}`}
+            >
+              Join Waitlist
+            </a>
+            <button
+              onClick={handleVideoClick}
+              className={`lg:hidden bg-primary text-background px-6 py-3 rounded-md text-base sm:text-lg font-body ${btnAnimation}`}
+            >
+              Watch Demo
+            </button>
           </div>
         </div>
       </div>
+
+      {/* Image and Video Container - Hidden on mobile */}
+      <div className="hidden lg:block relative w-1/2">
+        <img
+          src="/images/hero-image1.png"
+          alt="Hero image"
+          className="w-full h-auto rounded-lg shadow-lg"
+        />
+
+        {/* Video Thumbnail */}
+        <div
+          className="absolute bottom-[14%] left-[1.8%] cursor-pointer w-[30%] max-w-[187px]"
+          onClick={handleVideoClick}
+        >
+          <div className="relative w-full pb-[56.25%]">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-md"
+              style={{
+                borderRadius: '10px',
+                pointerEvents: 'auto',
+              }}
+            >
+              <source src="http://dev.quantumsenses.com:8877/final-demo_editted.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+        {/* <div
+          className="absolute bottom-[14%] left-[1.8%] cursor-pointer w-[30%] max-w-[187px]"
+          onClick={handleVideoClick}
+        >
+          <div className="relative w-full pb-[56.25%]">
+          <iframe
+              src="http://dev.quantumsenses.com:8877/final-demo_editted.mp4"
+              width="640"
+              height="360"
+              frameBorder="0"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowFullScreen
+              title="Vimeo video player"
+            ></iframe>
+          </div>
+        </div> */}
+      </div>
+
+      {/* Modal with Fullscreen Video */}
+      {isModalOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+          onClick={handleCloseModal}
+        >
+          <div
+            className="bg-white rounded-lg relative w-full max-w-3xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={handleCloseModal}
+              className="absolute top-2 right-2 text-gray-600 hover:text-gray-800 z-10"
+            >
+              ✕
+            </button>
+            <div className="relative pb-[56.25%] h-0">
+              <video
+                ref={videoRef}
+                className="absolute top-0 left-0 w-full h-full rounded-md"
+                controls
+              >
+                <source src="/videos/video.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
-};
+}
 
-export default Features;
+export default Hero;
