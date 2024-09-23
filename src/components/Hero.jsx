@@ -56,8 +56,8 @@ function Hero() {
         </div>
       </div>
 
-      {/* Image and Video Container - Hidden on mobile */}
-      <div className="hidden lg:block relative w-1/2">
+      {/* Image and Video Container */}
+      <div className="w-full lg:w-1/2 relative">
         <img
           src="/images/hero-image1.png"
           alt="Hero image"
@@ -66,10 +66,10 @@ function Hero() {
 
         {/* Video Thumbnail */}
         <div
-          className="absolute bottom-[14%] left-[1.8%] cursor-pointer w-[30%] max-w-[187px]"
+          className="absolute bottom-[10%] left-[5%] cursor-pointer w-[40%] lg:w-[30%] max-w-none lg:max-w-[300px]"
           onClick={handleVideoClick}
         >
-          <div className="relative w-full pb-[56.25%]"> {/* Aspect Ratio 16:9 */}
+          <div className="relative w-full pb-[56.25%]">
             <video
               autoPlay
               muted
@@ -104,7 +104,7 @@ function Hero() {
             >
               ✕
             </button>
-            <div className="relative pb-[56.25%] h-0"> {/* Aspect Ratio 16:9 */}
+            <div className="relative pb-[56.25%] h-0">
               <video
                 ref={videoRef}
                 className="absolute top-0 left-0 w-full h-full rounded-md"
