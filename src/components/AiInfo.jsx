@@ -75,7 +75,7 @@ const AiInfo = () => {
             pointerEvents: 'auto',
           }}
         >
-          <source src="https://aniruddhagps.com/chat-demo-1.mp4" type="video/mp4" />
+          <source src="https://aniruddhagps.com/quantumsenses/chat-demo-1.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         </div>
