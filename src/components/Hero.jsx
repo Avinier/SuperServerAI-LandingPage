@@ -106,13 +106,15 @@ function Hero() {
             </button>
             <div className="relative pb-[56.25%] h-0">
               <video
-                ref={videoRef}
-                className="absolute top-0 left-0 w-[100vw] h-[70vh] rounded-md"
-                controls
-              >
-                <source src="https://aniruddhagps.com/quantumsenses/final-demo_editted.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+  ref={videoRef}
+  className="absolute top-0 left-0 w-[100vw] h-[70vh] rounded-md"
+  controls
+  muted={false}
+  volume={1.0}  // Ensure max volume
+>
+  <source src="https://aniruddhagps.com/quantumsenses/final-demo_editted.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
             </div>
           </div>
         </div>
