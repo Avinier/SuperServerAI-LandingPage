@@ -71,10 +71,10 @@ function Hero() {
 
         {/* Video Thumbnail */}
         <div
-          className="absolute bottom-12 left-3 cursor-pointer w-1/3 sm:w-1/4 min-w-[186px] max-w-[208px]"
+          className="absolute bottom-12 left-2 cursor-pointer"
           onClick={handleVideoClick}
         >
-          <div className="relative w-full pb-[56.25%]">
+          <div className="relative w-[208px] h-[102px]">
             <video
               ref={videoRef}
               autoPlay
@@ -82,6 +82,10 @@ function Hero() {
               loop
               playsInline
               className="absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-md"
+              style={{
+                borderRadius: '10px',
+                pointerEvents: 'auto',
+              }}
             >
               <source src="/videos/video.mp4" type="video/mp4" />
               Your browser does not support the video tag.
