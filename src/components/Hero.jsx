@@ -57,7 +57,7 @@ function Hero() {
       </div>
 
       {/* Image and Video Container */}
-      <div className="w-full lg:w-1/2 relative">
+      <div className="hidden lg:block relative w-1/2">
         <img
           src="/images/hero-image1.png"
           alt="Hero image"
