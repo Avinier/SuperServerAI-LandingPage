@@ -69,7 +69,7 @@ function Hero() {
           className="absolute bottom-[14%] left-[1.8%] cursor-pointer w-[30%] max-w-[187px]"
           onClick={handleVideoClick}
         >
-          <div className="relative w-full pb-[56.25%]">
+          <div className="relative w-full pb-[56.25%]"> {/* Aspect Ratio 16:9 */}
             <video
               autoPlay
               muted
@@ -81,27 +81,11 @@ function Hero() {
                 pointerEvents: 'auto',
               }}
             >
-              <source src="/videos/video.mp4" type="video/mp4" />
+              <source src="http://dev.quantumsenses.com:8877/final-demo_editted.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
         </div>
-        {/* <div
-          className="absolute bottom-[14%] left-[1.8%] cursor-pointer w-[30%] max-w-[187px]"
-          onClick={handleVideoClick}
-        >
-          <div className="relative w-full pb-[56.25%]">
-          <iframe
-              src="http://dev.quantumsenses.com:8877/final-demo_editted.mp4"
-              width="640"
-              height="360"
-              frameBorder="0"
-              allow="autoplay; fullscreen; picture-in-picture"
-              allowFullScreen
-              title="Vimeo video player"
-            ></iframe>
-          </div>
-        </div> */}
       </div>
 
       {/* Modal with Fullscreen Video */}
@@ -120,13 +104,13 @@ function Hero() {
             >
               ✕
             </button>
-            <div className="relative pb-[56.25%] h-0">
+            <div className="relative pb-[56.25%] h-0"> {/* Aspect Ratio 16:9 */}
               <video
                 ref={videoRef}
                 className="absolute top-0 left-0 w-full h-full rounded-md"
                 controls
               >
-                <source src="/videos/video.mp4" type="video/mp4" />
+                <source src="http://dev.quantumsenses.com:8877/final-demo_editted.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
