@@ -74,54 +74,6 @@ const contentData = {
   },
 };
 
-const PersonaDropdown = ({ selectedPersona, setSelectedPersona }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  return (
-    <div className="relative w-full md:w-96 mx-auto my-6">
-      <motion.button
-        onClick={() => setIsOpen(!isOpen)}
-        className="bg-indigo-600 text-white px-6 py-3 w-full h-16 rounded-lg text-lg font-semibold flex items-center justify-between shadow-lg hover:bg-indigo-700 transition-all duration-300"
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
-      >
-        <div className="flex items-center">
-          <span className="mr-3 text-2xl">{personas.find((p) => p.id === selectedPersona).icon}</span>
-          <span>{personas.find((p) => p.id === selectedPersona).label}</span>
-        </div>
-        <ChevronDown
-          className={`w-6 h-6 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
-        />
-      </motion.button>
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
-            className="absolute mt-2 w-full bg-white rounded-lg shadow-xl z-10 overflow-hidden"
-          >
-            {personas.map((persona) => (
-              <motion.button
-                key={persona.id}
-                onClick={() => {
-                  setSelectedPersona(persona.id);
-                  setIsOpen(false);
-                }}
-                className="block w-full text-left px-6 py-3 text-lg font-semibold hover:bg-indigo-50 transition-colors duration-200"
-                whileHover={{ backgroundColor: "rgba(79, 70, 229, 0.1)" }}
-              >
-                <span className="mr-3 text-2xl">{persona.icon}</span>
-                <span>{persona.label}</span>
-              </motion.button>
-            ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-};
-
 const ContentSection = ({ image, info, index, isVisible }) => {
   return (
     <motion.div
@@ -153,6 +105,7 @@ const ContentSection = ({ image, info, index, isVisible }) => {
 const WorkFlow = () => {
   const [selectedPersona, setSelectedPersona] = useState(personas[0].id);
   const [isContentVisible, setIsContentVisible] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const content = contentData[selectedPersona];
   const [contentRef, isInView] = useInView({ threshold: 0.1 });
 
@@ -172,7 +125,51 @@ const WorkFlow = () => {
       >
         Who Benefits from Our Product?
       </motion.h2>
-      <PersonaDropdown selectedPersona={selectedPersona} setSelectedPersona={setSelectedPersona} />
+      
+      {/* Dropdown with decreased width for mobile */}
+      <div className="relative w-64 sm:w-80 md:w-96 mx-auto my-6">
+        <motion.button
+          onClick={() => setIsOpen(!isOpen)}
+          className="bg-primary text-white px-3 sm:px-4 md:px-6 py-2 sm:py-3 w-full h-10 sm:h-12 md:h-16 rounded-lg text-xs sm:text-sm md:text-lg font-semibold flex items-center justify-between shadow-lg hover:bg-indigo-700 transition-all duration-300"
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+        >
+          <div className="flex items-center">
+            <span className="mr-2 md:mr-3 text-lg sm:text-xl md:text-2xl">{personas.find((p) => p.id === selectedPersona).icon}</span>
+            <span className="truncate text-center w-full">{personas.find((p) => p.id === selectedPersona).label}</span>
+          </div>
+          <ChevronDown
+            className={`w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+          />
+        </motion.button>
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+              className="absolute mt-2 w-full bg-white rounded-lg shadow-xl z-10 overflow-hidden"
+            >
+              {personas.map((persona) => (
+                <motion.button
+                  key={persona.id}
+                  onClick={() => {
+                    setSelectedPersona(persona.id);
+                    setIsOpen(false);
+                  }}
+                  className="block w-full text-left px-3 sm:px-4 md:px-6 py-2 sm:py-3 text-xs sm:text-sm md:text-lg font-semibold hover:bg-indigo-50 transition-colors duration-200"
+                  whileHover={{ backgroundColor: "rgba(79, 70, 229, 0.1)" }}
+                >
+                  <span className="mr-2 md:mr-3 text-lg sm:text-xl md:text-2xl">{persona.icon}</span>
+                  <span className="truncate">{persona.label}</span>
+                </motion.button>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+
       <motion.div
         ref={contentRef}
         initial={{ opacity: 0 }}
@@ -187,7 +184,7 @@ const WorkFlow = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h3 className="text-md md:text-base lg:text-xl font-heading font-bold text-indigo-800 mb-4">
+          <h3 className="text-md md:text-base lg:text-xl font-heading font-bold text-primary mb-4">
             {content.title}
           </h3>
           <p className="text-xl text-gray-600 font-body max-w-3xl mx-auto">
