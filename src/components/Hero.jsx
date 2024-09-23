@@ -28,8 +28,8 @@ function Hero() {
     >
       {/* Text Content */}
       <div className="w-full lg:w-1/2 mb-8 lg:mb-0 lg:pr-8">
-        <div className="text-center lg:text-left max-w-xl mx-auto lg:mx-0">
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl leading-tight font-bold mb-4 font-heading text-text">
+        <div className="text-center lg:text-left max-w-xl mx-auto lg:mx-4">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-4xl leading-tight font-bold mb-4 font-heading text-text">
             Seamlessly deploy your code, with{" "}
             <span className="text-secondary">ZERO</span> knowledge of devops.
           </h1>
@@ -56,17 +56,17 @@ function Hero() {
         </div>
       </div>
 
-      {/* Image and Video Container - Hidden on mobile */}
-      <div className="hidden lg:block relative w-1/2">
+      {/* Image and Video Container */}
+      <div className="w-full lg:w-1/2 relative">
         <img
           src="/images/hero-image1.png"
           alt="Hero image"
-          className="w-full h-auto rounded-lg shadow-lg"
+          className="w-full h-auto rounded-lg"
         />
 
         {/* Video Thumbnail */}
         <div
-          className="absolute bottom-[10%] left-[5%] cursor-pointer w-[30%] max-w-[300px]"
+          className="absolute bottom-[14%] left-[1.8%] cursor-pointer w-[40%] lg:w-[29.1%] max-w-none lg:max-w-[300px]"
           onClick={handleVideoClick}
         >
           <div className="relative w-full pb-[56.25%]">
