@@ -61,7 +61,7 @@ function Hero() {
         <img
           src="/images/hero-image1.png"
           alt="Hero image"
-          className="w-full h-auto rounded-lg shadow-lg"
+          className="w-full h-auto rounded-lg"
         />
 
         {/* Video Thumbnail */}
