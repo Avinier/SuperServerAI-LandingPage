@@ -14,7 +14,7 @@ function App() {
       <Hero />
       <Features />
       <WorkFlow />
-      <AiInfo />
+      <AiInfo />    
       <Pricing />
       <Footer />
     </div>
