@@ -28,7 +28,7 @@ function Hero() {
     >
       {/* Text Content */}
       <div className="w-full lg:w-1/2 mb-8 lg:mb-0 lg:pr-8">
-        <div className="text-center lg:text-left max-w-xl mx-auto lg:mx-3">
+        <div className="text-center lg:text-left max-w-xl mx-auto lg:mx-4">
           <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl leading-tight font-bold mb-4 font-heading text-text">
             Seamlessly deploy your code, with{" "}
             <span className="text-secondary">ZERO</span> knowledge of devops.
