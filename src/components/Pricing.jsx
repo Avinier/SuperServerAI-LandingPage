@@ -1,7 +1,9 @@
 import React from "react";
+
 const PricingCard = ({ title, price, description, features, buttonText, highlight }) => (
-  <div className="flex flex-col min-h-[50%] min-w-[25%] p-6 bg-white rounded-lg shadow-lg transition ease-in-out hover:-translate-y-1 hover:scale-105 hover:cursor-pointer duration-300">
-    <div className="flex-grow">
+  <div className="relative flex flex-col min-h-[50%] min-w-[25%] p-6 bg-white rounded-lg shadow-lg overflow-hidden">
+    {/* Blurred content */}
+    <div className="filter blur-[8px] opacity-50">
       <h2 className="text-xl font-heading text-center mb-4 text-blue-600">{title}</h2>
       <div className="text-center mb-4">
         <span className="text-3xl font-heading">{price}</span>
@@ -17,15 +19,19 @@ const PricingCard = ({ title, price, description, features, buttonText, highligh
           </div>
         ))}
       </div>
+      <div className="mt-6">
+        <button className="w-full bg-primary text-white py-2 px-4 rounded-md">
+          {buttonText}
+        </button>
+      </div>
     </div>
-    <div className="mt-6">
-      <button className="w-full bg-primary text-white py-2 px-4 rounded-md hover:bg-gray-800 transition-colors">
-        {buttonText}
-      </button>
+    
+    {/* "Coming Soon" overlay */}
+    <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-30">
+      <span className="text-3xl font-bold text-text font-heading px-4 py-2 text-shadow-lg">Coming Soon</span>
     </div>
   </div>
 );
-
 
 function Pricing() {
   const plans = [
@@ -33,9 +39,6 @@ function Pricing() {
       title: "DEVELOPER",
       price: "$0",
       description: "for first 5 components",
-      subDescription: "Ideal for developers.",
-      additionalInfo: "$5/additional component",
-      resourceUsage: "+ resource usage ($100 credits per month free)",
       features: [
         "Unlimited projects",
         "2 developers",
@@ -48,9 +51,6 @@ function Pricing() {
       title: "TEAM",
       price: "$150",
       description: "/component per month",
-      subDescription: "Ideal for teams collaboratively building cloud native apps.",
-      additionalInfo: "Sign up and upgrade to Team with your work email to get 5 components free for 6 months",
-      resourceUsage: "+ resource usage ($1,000 credits for 6 months free)",
       features: [
         "Unlimited projects",
         "Unlimited developers",
@@ -66,7 +66,6 @@ function Pricing() {
       title: "ENTERPRISE",
       price: "Custom",
       description: "Ideal for companies building large-scale distributed apps.",
-      subDescription: "Discounts offered based on annual commitments",
       features: [
         "Unlimited projects",
         "Unlimited developers",
@@ -86,26 +85,21 @@ function Pricing() {
         <h2 className="text-[50px] md:text-5xl font-heading text-center text-text">
           Pricing
         </h2>
-        <p className="text-md md:text-2xl lg:text-xl text-bold text-center font-body text-text max-w-3xl mx-auto">
-          We offer three tier services. blah blah
+        
+        <p className="text-md mb-4 md:text-base lg:text-xl text-center font-body text-text max-w-2xl mx-auto">
+          We offer the most affordable prices, without compromising on management or security
         </p>
-        <div className="flex flex-col md:flex-row bg-background justify-center items-stretch space-y-6 md:space-y-0 md:space-x-6 p-6">
+        <div className="flex flex-col md:flex-row bg-background justify-center items-stretch space-y-6 md:space-y-0 md:space-x-6">
           {plans.map((plan, index) => (
             <PricingCard
               key={index}
-              title={plan.title}
-              price={plan.price}
-              description={plan.description}
-              features={plan.features}
-              buttonText={plan.buttonText}
-              highlight={plan.highlight}
+              {...plan}
             />
           ))}
         </div>
-
       </div>
     </section>
   );
 }
-export default Pricing;
 
+export default Pricing;
