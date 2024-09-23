@@ -60,17 +60,20 @@ const AiInfo = () => {
           </div>
         </div>
         <div className="relative lg:w-1/2 lg:ml-8">
-          <img
+        <img
             src="/images/aiinfo-border.png"
             alt="AI Info"
             className="w-full h-auto rounded-lg"
-          /><video
+          />
+        <video
           autoPlay
           muted
           loop
           playsInline
-          className="absolute top-30 right-45 w-[120px] h-[150px] object-cover rounded-lg shadow-md"
+          className="absolute top-2.5 left-4 w-[93.2%] object-cover rounded-lg shadow-md"
           style={{
+            // border: '10px solid #fefeef',
+            // boxShadow: '10px 10px 14.8px 0px rgba(0,0,0,0.3)',
             borderRadius: '10px',
             pointerEvents: 'auto',
           }}
