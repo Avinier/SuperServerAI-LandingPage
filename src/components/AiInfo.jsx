@@ -30,8 +30,6 @@ const AiInfo = () => {
 
   const sections = [
     { title: "Custom Trained LLM", content: "Content for section 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamc" },
-    { title: "AI-powered Dashboard with Analytics", content: "Content for section 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamc" },
-    { title: "All-in-one Cloud Solutions, fully automated", content: "content for section 3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamc" },
   ];
 
   return (
