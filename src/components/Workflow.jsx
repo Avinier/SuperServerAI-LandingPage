@@ -175,12 +175,12 @@ const WorkFlow = () => {
   }, [isInView]);
 
   return (
-    <section className="bg-gradient-to-br from-indigo-50 to-purple-100 min-h-screen text-gray-800 py-16 px-4 md:px-8">
+    <section className="bg-background min-h-screen text-gray-800 py-16 px-4 md:px-8">
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-4xl md:text-5xl font-bold text-center text-indigo-900 mb-8"
+        className="text-4xl md:text-4xl font-bold text-center font-heading mb-8"
       >
         Who Benefits from Our Product?
       </motion.h2>

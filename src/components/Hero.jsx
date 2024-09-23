@@ -81,7 +81,7 @@ function Hero() {
                 pointerEvents: 'auto',
               }}
             >
-              <source src="/videos/video.mp4" type="video/mp4" />
+              <source src="https://aniruddhagps.com/final-demo_editted.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
