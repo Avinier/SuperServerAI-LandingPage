@@ -73,6 +73,7 @@ function Hero() {
             <video
               autoPlay
               loop
+              muted
               playsInline
               className="absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-md"
               style={{
@@ -108,7 +109,6 @@ function Hero() {
                 ref={videoRef}
                 className="absolute top-0 left-0 w-[100vw] h-[70vh] rounded-md"
                 controls
-
               >
                 <source src="https://aniruddhagps.com/quantumsenses/final-demo_editted.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
