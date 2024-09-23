@@ -50,10 +50,6 @@ const contentData = {
         image: "/images/workflow-image1.jpg",
         info: "Access powerful compute resources and collaborative environments to accelerate your model training and experimentation workflows.",
       },
-      {
-        image: "/images/workflow-image1.jpg",
-        info: "Leverage our comprehensive suite of tools for data preprocessing, model evaluation, and hyperparameter tuning.",
-      },
     ],
   },
   projects: {
@@ -64,10 +60,6 @@ const contentData = {
         image: "/images/workflow-image1.jpg",
         info: "Gain real-time insights into project progress, resource allocation, and model performance to make informed decisions.",
       },
-      {
-        image: "/images/workflow-image1.jpg",
-        info: "Streamline communication and knowledge sharing across your team with our integrated collaboration features.",
-      },
     ],
   },
   production: {
@@ -77,10 +69,6 @@ const contentData = {
       {
         image: "/images/workflow-image1.jpg",
         info: "Monitor model performance, manage versioning, and orchestrate deployments with our robust MLOps toolkit.",
-      },
-      {
-        image: "/images/workflow-image1.jpg",
-        info: "Implement automated testing, continuous integration, and rollback mechanisms to maintain high availability and reliability.",
       },
     ],
   },
@@ -175,12 +163,12 @@ const WorkFlow = () => {
   }, [isInView]);
 
   return (
-    <section className="bg-background min-h-screen text-gray-800 py-16 px-4 md:px-8">
+    <section className="bg-background min-h-screen text-text py-16 px-4 md:px-8">
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-4xl md:text-5xl font-heading font-bold text-center text-indigo-900 mb-8"
+        className="text-4xl md:text-4xl font-heading font-bold text-center mb-8"
       >
         Who Benefits from Our Product?
       </motion.h2>
@@ -199,7 +187,7 @@ const WorkFlow = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h3 className="text-2xl md:text-3xl font-heading font-bold text-indigo-800 mb-4">
+          <h3 className="text-md md:text-base lg:text-xl font-heading font-bold text-indigo-800 mb-4">
             {content.title}
           </h3>
           <p className="text-xl text-gray-600 font-body max-w-3xl mx-auto">

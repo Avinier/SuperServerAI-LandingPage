@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 
 const FeatureCard = ({ feature, index, visibleFeatures }) => (
   <div
-    className={`rounded-lg overflow-hidden w-52 h-52 transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg ${
+    className={`rounded-lg overflow-hidden w-full sm:w-52 h-52 transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg ${
       visibleFeatures.includes(index) ? "animate-fadeInUp" : "opacity-0"
     }`}
   >
@@ -48,7 +48,7 @@ const Features = () => {
       icon: (
         <img src="/images/database-storage.png" alt="DB Profiling" className="w-[90px] h-[90px] mx-auto" />
       ),
-      title: "Database \n\n Profiling",
+      title: "Database Profiling",
       description: "Optimize your database performance with our advanced DB profiling feature."
     },
     {
@@ -104,9 +104,11 @@ const Features = () => {
         <p className="text-md md:text-base lg:text-xl mb-8 text-center font-body text-white max-w-2xl mx-auto">
           Our features ensure that you can focus on building your code while we handle the deployment, maintenance, and security.
         </p>
-        <div className="flex flex-wrap justify-center gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
           {features.map((feature, index) => (
-            <FeatureCard key={index} feature={feature} index={index} visibleFeatures={visibleFeatures} />
+            <div key={index} className={index === 4 ? "col-span-2 sm:col-span-1" : ""}>
+              <FeatureCard feature={feature} index={index} visibleFeatures={visibleFeatures} />
+            </div>
           ))}
         </div>
       </div>
