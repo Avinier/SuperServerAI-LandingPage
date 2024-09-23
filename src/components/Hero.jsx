@@ -66,7 +66,7 @@ function Hero() {
 
         {/* Video Thumbnail */}
         <div
-          className="absolute bottom-[5%] left-[2%] cursor-pointer w-[30%] max-w-[208px]"
+          className="absolute bottom-[14%] left-[1.8%] cursor-pointer w-[30%] max-w-[187px]"
           onClick={handleVideoClick}
         >
           <div className="relative w-full pb-[56.25%]">
@@ -86,6 +86,22 @@ function Hero() {
             </video>
           </div>
         </div>
+        {/* <div
+          className="absolute bottom-[14%] left-[1.8%] cursor-pointer w-[30%] max-w-[187px]"
+          onClick={handleVideoClick}
+        >
+          <div className="relative w-full pb-[56.25%]">
+          <iframe
+              src="http://dev.quantumsenses.com:8877/final-demo_editted.mp4"
+              width="640"
+              height="360"
+              frameBorder="0"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowFullScreen
+              title="Vimeo video player"
+            ></iframe>
+          </div>
+        </div> */}
       </div>
 
       {/* Modal with Fullscreen Video */}
