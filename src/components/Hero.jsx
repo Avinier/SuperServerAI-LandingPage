@@ -66,26 +66,27 @@ function Hero() {
 
         {/* Video Thumbnail */}
         <div
-          className="absolute bottom-[14%] left-[1.8%] cursor-pointer w-[30%] max-w-[187px]"
-          onClick={handleVideoClick}
-        >
-          <div className="relative w-full pb-[56.25%]">
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-md"
-              style={{
-                borderRadius: '10px',
-                pointerEvents: 'auto',
-              }}
-            >
-              <source src="http://dev.quantumsenses.com:8877/final-demo_editted.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </div>
+  className="absolute bottom-[14%] left-[1.8%] cursor-pointer w-[30%] max-w-[187px]"
+  onClick={handleVideoClick}
+>
+  <div className="relative w-full pb-[56.25%]">
+    <video
+      autoPlay
+      muted
+      loop
+      playsInline
+      className="absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-md"
+      style={{
+        borderRadius: '10px',
+        pointerEvents: 'auto',
+        display: 'block', // Ensure it displays properly
+      }}
+    >
+      <source src="http://dev.quantumsenses.com:8877/final-demo_editted.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
         {/* <div
           className="absolute bottom-[14%] left-[1.8%] cursor-pointer w-[30%] max-w-[187px]"
           onClick={handleVideoClick}
