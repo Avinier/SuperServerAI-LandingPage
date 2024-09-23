@@ -42,7 +42,7 @@ function Hero() {
               href="https://hu56kt7hdn2.typeform.com/to/vD8NjERN"
               target="_blank"
               rel="noopener noreferrer"
-              className={`bg-secondary text-background text-center mx-12 px-6 py-3 rounded-md text-base sm:text-lg font-body ${btnAnimation}`}
+              className={`bg-secondary text-background lg:mx-auto  text-center sm:mx-12 px-6 py-3 rounded-md text-base sm:text-lg font-body ${btnAnimation}`}
             >
               Join Waitlist
             </a>
