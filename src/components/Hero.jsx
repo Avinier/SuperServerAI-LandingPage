@@ -71,7 +71,7 @@ function Hero() {
 
         {/* Video Thumbnail */}
         <div
-          className="absolute bottom-4 left-4 cursor-pointer w-1/3 sm:w-1/4 min-w-[120px] max-w-[208px]"
+          className="absolute bottom-12 left-3 cursor-pointer w-1/3 sm:w-1/4 min-w-[186px] max-w-[208px]"
           onClick={handleVideoClick}
         >
           <div className="relative w-full pb-[56.25%]">
