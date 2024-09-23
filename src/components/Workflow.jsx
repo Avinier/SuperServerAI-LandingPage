@@ -136,7 +136,7 @@ const WorkFlow = () => {
         >
           <div className="flex items-center">
             <span className="mr-2 md:mr-3 text-lg sm:text-xl md:text-2xl">{personas.find((p) => p.id === selectedPersona).icon}</span>
-            <span className="truncate text-center w-full">{personas.find((p) => p.id === selectedPersona).label}</span>
+            <span className="truncate text-body">{personas.find((p) => p.id === selectedPersona).label}</span>
           </div>
           <ChevronDown
             className={`w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
