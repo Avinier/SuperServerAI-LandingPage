@@ -71,10 +71,10 @@ function Hero() {
 
         {/* Video Thumbnail */}
         <div
-          className="absolute bottom-12 left-2 cursor-pointer"
+          className="absolute bottom-[5%] left-[2%] cursor-pointer w-[30%] sm:w-[25%] md:w-[20%] lg:w-[30%] max-w-[208px]"
           onClick={handleVideoClick}
         >
-          <div className="relative w-[208px] h-[102px]">
+          <div className="relative w-full pb-[56.25%]">
             <video
               ref={videoRef}
               autoPlay
