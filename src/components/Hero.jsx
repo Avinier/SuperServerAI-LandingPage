@@ -1,30 +1,19 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import "../styles/hero.css";
 
 function Hero() {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const videoRef = useRef(null);
 
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
-
   const handleVideoClick = () => {
-    if (videoRef.current) {
-      if (videoRef.current.requestFullscreen) {
-        videoRef.current.requestFullscreen();
-      } else if (videoRef.current.webkitRequestFullscreen) {
-        videoRef.current.webkitRequestFullscreen();
-      } else if (videoRef.current.msRequestFullscreen) {
-        videoRef.current.msRequestFullscreen();
-      }
-    }
+    setIsModalOpen(true);
   };
 
-  const handleModalClick = (e) => {
-    if (e.target === e.currentTarget) {
-      setIsModalOpen(false);
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    if (videoRef.current) {
+      videoRef.current.pause();
     }
   };
 
@@ -48,7 +37,7 @@ function Hero() {
             We aim to offer AI-powered services to small businesses and
             developers to deploy and manage their code.
           </p>
-          <div className="flex justify-center lg:justify-start">
+          <div className="flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
             <a
               href="https://hu56kt7hdn2.typeform.com/to/vD8NjERN"
               target="_blank"
@@ -57,12 +46,18 @@ function Hero() {
             >
               Join Waitlist
             </a>
+            <button
+              onClick={handleVideoClick}
+              className={`lg:hidden bg-primary text-background px-6 py-3 rounded-md text-base sm:text-lg font-body ${btnAnimation}`}
+            >
+              Watch Demo
+            </button>
           </div>
         </div>
       </div>
 
-      {/* Image and Video Container */}
-      <div className="relative w-full lg:w-1/2 mt-8 lg:mt-0">
+      {/* Image and Video Container - Hidden on mobile */}
+      <div className="hidden lg:block relative w-1/2">
         <img
           src="/images/hero-image1.png"
           alt="Hero image"
@@ -71,12 +66,11 @@ function Hero() {
 
         {/* Video Thumbnail */}
         <div
-          className="absolute bottom-[5%] left-[2%] cursor-pointer w-[30%] sm:w-[25%] md:w-[20%] lg:w-[30%] max-w-[208px]"
+          className="absolute bottom-[5%] left-[2%] cursor-pointer w-[30%] max-w-[208px]"
           onClick={handleVideoClick}
         >
           <div className="relative w-full pb-[56.25%]">
             <video
-              ref={videoRef}
               autoPlay
               muted
               loop
@@ -98,18 +92,27 @@ function Hero() {
       {isModalOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
-          onClick={handleModalClick}
+          onClick={handleCloseModal}
         >
           <div
             className="bg-white rounded-lg relative w-full max-w-3xl"
             onClick={(e) => e.stopPropagation()}
           >
+            <button
+              onClick={handleCloseModal}
+              className="absolute top-2 right-2 text-gray-600 hover:text-gray-800 z-10"
+            >
+              ✕
+            </button>
             <div className="relative pb-[56.25%] h-0">
-              <iframe
-                src="https://www.loom.com/embed/aa2a3e920c5e43569facbfca924a6213?sid=3e2cd9bf-9945-4077-9b08-2fc24907a304"
-                allowFullScreen
+              <video
+                ref={videoRef}
                 className="absolute top-0 left-0 w-full h-full rounded-md"
-              ></iframe>
+                controls
+              >
+                <source src="/videos/video.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
         </div>
