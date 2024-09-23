@@ -37,7 +37,7 @@ const AiInfo = () => {
   return (
     <section className="py-10 md:py-20 px-4 md:px-8 lg:px-20 relative bg-secondary overflow-hidden rounded-tl-[60px] md:rounded-tl-[120px] rounded-bl-[60px] md:rounded-bl-[120px]">
       <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading text-white text-center">What makes us different</h1>
-      <p className="text-sm md:text-lg lg:text-xl mt-4 lg:mt-6 text-bold text-center font-body text-white max-w-3xl mx-auto">
+      <p className="text-base md:text-lg lg:text-xl mt-4 lg:mt-6 text-bold text-center font-body text-white max-w-3xl mx-auto">
         We stand apart from the competition, offering amazingly blazingly fast services at affordable costs
       </p>
 
