@@ -22,7 +22,7 @@ function Hero() {
 
   return (
     <section
-      className={`bg-background flex flex-col lg:flex-row min-h-screen w-full items-center justify-center px-4 sm:px-6 lg:px-8 py-12 lg:py-20 ${
+      className={`bg-background flex flex-col lg:flex-row min-h-min w-full items-center justify-center px-4 sm:px-6 lg:px-8 py-24 lg:py-20 ${
         isVisible ? "animate-fade-in-up" : "opacity-0"
       }`}
     >
