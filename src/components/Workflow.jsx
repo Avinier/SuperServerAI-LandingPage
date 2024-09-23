@@ -180,11 +180,7 @@ const WorkFlow = () => {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-<<<<<<< Updated upstream
-        className="text-4xl md:text-4xl font-bold text-center font-heading mb-8"
-=======
         className="text-4xl md:text-5xl font-heading font-bold text-center text-indigo-900 mb-8"
->>>>>>> Stashed changes
       >
         Who Benefits from Our Product?
       </motion.h2>
