@@ -28,12 +28,12 @@ function Hero() {
     >
       {/* Text Content */}
       <div className="w-full lg:w-1/2 mb-8 lg:mb-0 lg:pr-8">
-        <div className="text-center lg:text-left max-w-xl mx-auto lg:mx-4">
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-4xl leading-tight font-bold mb-4 font-heading text-text">
+        <div className="lg:text-left max-w-xl mx-auto lg:mx-4">
+          <h1 className="text-2xl text-center sm:text-3xl lg:text-4xl xl:text-4xl leading-tight font-bold mb-4 font-heading text-text">
             Seamlessly deploy your code, with{" "}
             <span className="text-secondary">ZERO</span> knowledge of devops.
           </h1>
-          <p className="text-base sm:text-lg lg:text-xl text-text mb-6 font-body">
+          <p className="text-base text-center sm:text-lg lg:text-xl text-text mb-6 font-body">
             We aim to offer AI-powered services to small businesses and
             developers to deploy and manage their code.
           </p>
@@ -42,7 +42,7 @@ function Hero() {
               href="https://hu56kt7hdn2.typeform.com/to/vD8NjERN"
               target="_blank"
               rel="noopener noreferrer"
-              className={`bg-secondary text-background px-6 py-3 rounded-md text-base sm:text-lg font-body ${btnAnimation}`}
+              className={`bg-secondary text-background mx-auto px-6 py-3 rounded-md text-base sm:text-lg font-body ${btnAnimation}`}
             >
               Join Waitlist
             </a>
