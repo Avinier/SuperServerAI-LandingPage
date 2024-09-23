@@ -72,7 +72,6 @@ function Hero() {
           <div className="relative w-full pb-[56.25%]">
             <video
               autoPlay
-              muted
               loop
               playsInline
               className="absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-md"
@@ -81,7 +80,7 @@ function Hero() {
                 pointerEvents: 'auto',
               }}
             >
-              <source src="https://aniruddhagps.com/quantumsenses/final-demo_editted.mp4" type="video/mp4" />
+              <source src="https://aniruddhagps.com/quantumsenses/final-demo_editted.mp4"  type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
@@ -107,8 +106,9 @@ function Hero() {
             <div className="relative pb-[56.25%] h-0">
               <video
                 ref={videoRef}
-                className="absolute top-0 left-0 w-full h-full rounded-md"
+                className="absolute top-0 left-0 w-[100vw] h-[70vh] rounded-md"
                 controls
+
               >
                 <source src="https://aniruddhagps.com/quantumsenses/final-demo_editted.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
