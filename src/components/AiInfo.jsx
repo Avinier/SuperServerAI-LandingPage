@@ -61,7 +61,7 @@ const AiInfo = () => {
                         style={{ width: `${progress}%` }}
                       ></div>
                     </div>
-                    <p className="font-body mt-4 md:mt-6 text-background text-bold text-sm md:text-base lg:text-lg">{section.content}</p>
+                    <p className="font-body mt-4 md:mt-6 text-background text-base md:text-lg lg:text-xl leading-relaxed">{section.content}</p>
                   </div>
                 )}
               </div>
