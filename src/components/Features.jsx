@@ -104,7 +104,7 @@ const Features = () => {
         <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 text-center font-body text-white max-w-xs sm:max-w-2xl md:max-w-3xl mx-auto">
           Our features ensure that you can focus on building your code while we handle the deployment, maintenance, and security.
         </p>
-        <div className="grid grid-cols-1 gap-4 sm:gap-6 w-full sm:w-[90%] lg:w-[75%] mx-auto">
+        <div className="grid grid-cols-1 gap-4 sm:gap-6 w-[85%] sm:w-[90%] md:w-[85%] lg:w-[75%] mx-auto">
           {/* All cards in a single column layout for mobile, then grid for larger screens */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {features.map((feature, index) => (
