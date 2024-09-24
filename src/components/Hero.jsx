@@ -143,6 +143,7 @@ function Hero() {
   ref={videoRef}
   className="absolute top-0 left-0 w-[100vw] h-[70vh] rounded-md"
   controls
+  autoPlay
   muted={false}
   volume={1.0}  // Ensure max volume
 >
