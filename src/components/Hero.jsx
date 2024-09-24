@@ -43,7 +43,7 @@ function Hero() {
             3000,
           ]}
           wrapper="span"
-          speed={20}
+          speed={40}
           style={{ display: 'inline-block' }}
           repeat={Infinity}
           cursor={false}
