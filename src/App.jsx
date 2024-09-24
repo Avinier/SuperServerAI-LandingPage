@@ -9,7 +9,7 @@ import Pricing from './components/Pricing';
 import Footer from './components/Footer';
 
 const tagManagerArgs = {
-  gtmId: 'G-Y4575EYTLY'
+  gtmId: 'G-Y4575EYTLY',
 };
 
 function App() {
