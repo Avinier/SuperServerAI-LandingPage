@@ -35,11 +35,11 @@ function Hero() {
             Seamlessly{' '}
             <TypeAnimation
               sequence={[
-                "Deploy",
+                'Deploy',
                 2000,
-                "Manage",
+                'Manage',
                 2000,
-                "Secure",
+                'Secure',
                 2000,
               ]}
               wrapper="span"
