@@ -36,14 +36,14 @@ function Hero() {
         <TypeAnimation
           sequence={[
             'Deploy',
-            2000,
+            3000,
             'Manage',
-            2000,
+            3000,
             'Secure',
-            2000,
+            3000,
           ]}
           wrapper="span"
-          speed={50}
+          speed={20}
           style={{ display: 'inline-block' }}
           repeat={Infinity}
           cursor={false}
