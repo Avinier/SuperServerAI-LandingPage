@@ -6,6 +6,11 @@ import WorkFlow from './components/Workflow';
 import AiInfo from './components/AiInfo';
 import Pricing from './components/Pricing';
 import Footer from './components/Footer';
+import TagManager from 'react-gtm-module'
+const tagManagerArgs = {
+  gtmId: 'G-Y4575EYTLY'
+}
+TagManager.initialize(tagManagerArgs)
 
 function App() {
   return (
