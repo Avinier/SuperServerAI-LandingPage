@@ -30,12 +30,12 @@ function Hero() {
       <div className="w-full lg:w-1/2 mb-8 lg:mb-0 lg:pr-8">
         <div className="lg:text-left max-w-xl mx-auto lg:mx-4">
           <h1 className="text-3xl text-center sm:text-3xl lg:text-4xl xl:text-4xl leading-tight font-bold mb-4 font-heading text-text">
-            Seamlessly deploy your code, with{" "}
+            Seamlessly deploy your servers, with{" "}
             <span className="text-secondary">ZERO</span> knowledge of devops.
           </h1>
           <p className="text-base text-center sm:text-lg lg:text-xl text-text mb-6 font-body">
-            We aim to offer AI-powered services to small businesses and
-            developers to deploy and manage their code.
+            We aim to offer AI-powered cloud services to small businesses and
+            developers to deploy, manage and scale  their code.
           </p>
           <div className="flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
             <a
