@@ -1,5 +1,4 @@
 import React, { useState, useRef } from "react";
-import { TypeAnimation } from 'react-type-animation';
 import "../styles/hero.css";
 
 function Hero() {
@@ -31,24 +30,8 @@ function Hero() {
       <div className="w-full lg:w-1/2 mb-8 lg:mb-0 lg:pr-8">
         <div className="lg:text-left max-w-xl mx-auto lg:mx-4">
           <h1 className="text-3xl text-center sm:text-3xl lg:text-4xl xl:text-4xl leading-tight font-bold mb-4 font-heading text-text">
-          <div className="text-2xl font-bold">
-            Seamlessly{' '}
-            <TypeAnimation
-              sequence={[
-                'Deploy',
-                2000,
-                'Manage',
-                2000,
-                'Secure',
-                2000,
-              ]}
-              wrapper="span"
-              speed={50}
-              style={{ display: 'inline-block' }}
-              repeat={Infinity}
-            />
-            {' '}Your Code
-          </div>
+            Seamlessly deploy your servers, with{" "}
+            <span className="text-secondary">ZERO</span> knowledge of devops.
           </h1>
           <p className="text-base text-center sm:text-lg lg:text-xl text-text mb-6 font-body">
             We aim to offer AI-powered cloud services to small businesses and
