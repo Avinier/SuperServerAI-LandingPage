@@ -56,7 +56,7 @@ function Hero() {
           font-family: 'Courier New', monospace;
           animation: blink 0.7s infinite;
           position: absolute;
-          bottom: 0;
+          bottom: -0.1em;
           right: -0.5em;
           font-size:60px;
         }
