@@ -30,7 +30,7 @@ function Hero() {
       {/* Text Content */}
       <div className="w-full lg:w-1/2 mb-8 lg:mb-0 lg:pr-8">
         <div className="lg:text-left max-w-xl mx-auto lg:mx-4">
-          <h1 className="text-3xl text-center sm:text-3xl lg:text-4xl xl:text-4xl leading-tight font-bold mb-4 font-body text-text">
+          <h1 className="text-3xl text-center sm:text-3xl lg:text-4xl xl:text-4xl leading-tight font-bold mb-4 font-heading text-text">
           <div className="text-2xl font-bold">
             Seamlessly{' '}
             <TypeAnimation
