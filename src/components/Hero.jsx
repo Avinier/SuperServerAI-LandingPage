@@ -31,8 +31,7 @@ function Hero() {
       <div className="w-full lg:w-1/2 mb-8 lg:mb-0 lg:pr-8">
         <div className="lg:text-left max-w-xl mx-auto lg:mx-4">
           <h1 className="text-3xl text-center sm:text-3xl lg:text-4xl xl:text-4xl leading-tight font-bold mb-4 font-heading text-text">
-          <div className="text-2xl font-bold relative">
-      Seamlessly{' '}
+          Seamlessly{' '}
       <span className="relative mr-3">
         <TypeAnimation
           sequence={[
@@ -51,7 +50,7 @@ function Hero() {
         />
         <span className="custom-cursor">|</span>
       </span>
-      {'  '}Your Code
+      <br />your code, with <span className="text-secondary">ZERO</span> knowledge of devops.
       <style jsx>{`
         .custom-cursor {
           font-family: 'Courier New', monospace;
@@ -59,8 +58,7 @@ function Hero() {
           position: absolute;
           bottom: 0;
           right: -0.5em;
-          font-size:38px;
-          color: var(--secondary-color);
+          font-size:60px;
         }
         @keyframes blink {
           0% { opacity: 0 }
@@ -68,7 +66,6 @@ function Hero() {
           100% { opacity: 0 }
         }
       `}</style>
-    </div>
           </h1>
           <p className="text-base text-center sm:text-lg lg:text-xl text-text mb-6 font-body">
             We aim to offer AI-powered cloud services to small businesses and
