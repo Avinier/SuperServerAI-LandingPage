@@ -124,7 +124,7 @@ const WorkFlow = () => {
 
   return (
     <section className="bg-background min-h-screen text-text py-16 px-4 md:px-8">
-      <h2 className="text-4xl md:text-4xl font-heading text-text font-bold text-center mb-8 transition-all duration-500 ease-in-out opacity-0 -translate-y-4 animate-fade-in-down">
+      <h2 className="text-4xl md:text-4xl font-heading text-text font-bold text-center mb-8 transition-all duration-500 ease-in-out -translate-y-4 animate-fade-in-down">
         Who Benefits from Our Product?
       </h2>
       <div className="relative w-64 sm:w-80 md:w-96 mx-auto my-6">
