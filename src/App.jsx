@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Features from './components/Features';
@@ -30,9 +30,6 @@ function GoogleAnalyticsTag() {
 }
 
 function App() {
-  React.useEffect(() => {
-    ReactGTM.initialize(tagManagerArgs);
-  }, []);
   return (
     <div className="font-sans">
       <GoogleAnalyticsTag />
