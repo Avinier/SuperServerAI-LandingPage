@@ -48,6 +48,7 @@ function Hero() {
           repeat={Infinity}
           cursor={false}
         />
+        <span className="custom-cursor">|</span>
       </span>
       <br />your code, with ZERO knowledge of devops.
       <style jsx>{`
