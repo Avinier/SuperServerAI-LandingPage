@@ -50,7 +50,7 @@ function Hero() {
         />
         <span className="custom-cursor">|</span>
       </span>
-      <br />your code, with knowledge of devops.
+      <br />your code, with ZERO knowledge of devops.
       <style jsx>{`
         .custom-cursor {
           font-family: 'Courier New', monospace;
