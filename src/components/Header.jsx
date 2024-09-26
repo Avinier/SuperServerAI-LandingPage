@@ -25,7 +25,7 @@ const Logo = () => {
   return (
     <div className="flex-shrink-0">
       <a href="#" className="text-xl lg:text-2xl font-heading text-primary">
-        SuperServer<span className="text-accent text-2xl lg:text-3xl">.</span><span className="text-secondary">AI</span>
+        SuperServer<span className="text-primary text-2xl lg:text-3xl">.</span><span className="text-secondary">AI</span>
       </a>
     </div>
   );
