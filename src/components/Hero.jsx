@@ -32,7 +32,7 @@ function Hero() {
         <div className="lg:text-left max-w-xl mx-auto lg:mx-4">
           <h1 className="text-3xl text-center sm:text-3xl lg:text-4xl xl:text-4xl leading-tight font-bold mb-4 font-heading text-text">
           Seamlessly{' '}
-      <span className="relative mr-3">
+      <span className="relative mr-3 text-secondary">
         <TypeAnimation
           sequence={[
             'Deploy',
@@ -50,7 +50,7 @@ function Hero() {
         />
         <span className="custom-cursor">|</span>
       </span>
-      <br />your code, with <span className="text-secondary">ZERO</span> knowledge of devops.
+      <br />your code, with knowledge of devops.
       <style jsx>{`
         .custom-cursor {
           font-family: 'Courier New', monospace;
