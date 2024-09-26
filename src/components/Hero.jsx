@@ -68,7 +68,7 @@ function Hero() {
       `}</style>
           </h1>
           <p className="text-base text-center sm:text-lg lg:text-xl text-text mb-6 font-body">
-            We aim to offer AI-powered cloud services to small businesses and
+            We offer AI-powered cloud services to small businesses and
             developers to deploy, manage and scale  their code.
           </p>
           <div className="flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
