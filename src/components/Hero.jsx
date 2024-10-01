@@ -62,7 +62,7 @@ function Hero() {
               margin-left: -8px;
               font-size: 1em;
               line-height: 1;
-              vertical-align: text-top;
+              vertical-align: baseline;
             }
             @keyframes blink {
               0% { opacity: 0 }
