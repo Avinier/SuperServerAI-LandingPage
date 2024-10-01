@@ -60,7 +60,7 @@ function Hero() {
               animation: blink 0.7s infinite;
               display: inline-block;
               margin-left: -8px;
-              font-size: 1.3em;
+              font-size: 1em;
               line-height: 1;
               vertical-align: text-top;
             }
