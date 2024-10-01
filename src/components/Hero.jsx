@@ -1,81 +1,88 @@
 import React, { useState, useRef } from "react";
 import { TypeAnimation } from 'react-type-animation';
+import "../styles/hero.css";
 
-const Hero = () => {
-  const [isVisible] = useState(true);
+function Hero() {
+  const [isVisible, setIsVisible] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const videoRef = useRef(null);
 
-  const handleVideoClick = () => setIsModalOpen(true);
-  
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-    if (videoRef.current) videoRef.current.pause();
+  const handleVideoClick = () => {
+    setIsModalOpen(true);
   };
 
-  const btnAnimation = "transition-all duration-300 hover:shadow-lg transform hover:scale-105 hover:-translate-y-1";
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    if (videoRef.current) {
+      videoRef.current.pause();
+    }
+  };
+
+  const btnAnimation =
+    "transition-all duration-300 hover:shadow-lg transform hover:scale-105 hover:-translate-y-1";
 
   return (
-    <section className={`
-      bg-background flex flex-col lg:flex-row 
-      min-h-[80vh] w-full items-center justify-center 
-      px-4 sm:px-6 lg:px-8 py-12 lg:py-20
-      ${isVisible ? "animate-fade-in-up" : "opacity-0"}
-    `}>
+    <section
+      className={`bg-background flex flex-col lg:flex-row min-h-min w-full items-center justify-center px-4 sm:px-6 lg:px-8 py-24 lg:py-20 ${
+        isVisible ? "animate-fade-in-up" : "opacity-0"
+      }`}
+    >
       {/* Text Content */}
       <div className="w-full lg:w-1/2 mb-8 lg:mb-0 lg:pr-8">
-        <div className="text-center lg:text-left max-w-xl mx-auto lg:mx-0">
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl leading-tight font-bold mb-4 font-heading text-text">
-            Seamlessly{' '}
-            <span className="relative inline-block">
-              <TypeAnimation
-                sequence={[
-                  'Deploy',
-                  3000,
-                  'Manage',
-                  3000,
-                  'Secure',
-                  3000,
-                ]}
-                wrapper="span"
-                speed={40}
-                repeat={Infinity}
-                cursor={false}
-                className="text-secondary"
-              />
-              <span className="custom-cursor">|</span>
-            </span>
-            <br className="hidden sm:block" />
-            <span className="block mt-2 sm:mt-0">
-              your code, with ZERO knowledge of devops.
-            </span>
+        <div className="lg:text-left max-w-xl mx-auto lg:mx-4">
+          <h1 className="text-3xl text-center sm:text-3xl lg:text-4xl xl:text-4xl leading-tight font-bold mb-4 font-heading text-text">
+          Seamlessly{' '}
+      <span className="relative mr-3 text-secondary">
+        <TypeAnimation
+          sequence={[
+            'Deploy',
+            3000,
+            'Manage',
+            3000,
+            'Secure',
+            3000,
+          ]}
+          wrapper="span"
+          speed={40}
+          style={{ display: 'inline-block' }}
+          repeat={Infinity}
+          cursor={false}
+        />
+        <span className="custom-cursor">|</span>
+      </span>
+      <br />your code, with ZERO knowledge of devops.
+      <style jsx>{`
+        .custom-cursor {
+          font-family: 'Courier New', monospace;
+          animation: blink 0.7s infinite;
+          position: absolute;
+          bottom: -0.1em;
+          right: -0.5em;
+          font-size:60px;
+        }
+        @keyframes blink {
+          0% { opacity: 0 }
+          50% { opacity: 1 }
+          100% { opacity: 0 }
+        }
+      `}</style>
           </h1>
-          
-          <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-text mb-6 font-body">
+          <p className="text-base text-center sm:text-lg lg:text-xl text-text mb-6 font-body">
             We offer AI-powered cloud services to small businesses and
-            developers to deploy, manage and scale their code.
+            developers to deploy, manage and scale  their code.
           </p>
-          
           <div className="flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
             <a
               href="https://hu56kt7hdn2.typeform.com/to/vD8NjERN"
               target="_blank"
               rel="noopener noreferrer"
-              className={`
-                bg-secondary text-background text-center
-                px-6 py-3 rounded-md text-sm sm:text-base
-                font-body font-bold ${btnAnimation}
-              `}
+              className={`bg-secondary text-background lg:mx-auto sm:mx-12 text-center px-6 py-3 rounded-md text-base sm:text-lg font-body  font-bold ${btnAnimation}`}
             >
               Join Waitlist
             </a>
             <button
               onClick={handleVideoClick}
-              className={`
-                lg:hidden bg-primary text-background
-                px-6 py-3 rounded-md text-sm sm:text-base
-                font-body font-bold ${btnAnimation}
-              `}
+              className={`lg:hidden bg-primary text-background px-6 py-3 rounded-md text-base sm:text-lg font-body font-bold ${btnAnimation}`}
             >
               Watch Demo
             </button>
@@ -84,28 +91,41 @@ const Hero = () => {
       </div>
 
       {/* Image and Video Container */}
-      <div className="hidden lg:block relative w-full lg:w-1/2">
+      <div className="hidden lg:block relative w-1/2">
         <img
-          src="/api/placeholder/600/400"
-          alt="Hero illustration"
+          src="/images/hero-image1.png"
+          alt="Hero image"
           className="w-full h-auto rounded-lg"
         />
+
+        {/* Video Thumbnail */}
         <div
-          className="absolute bottom-[14%] left-[1.8%] cursor-pointer w-[29.1%]"
+          className="absolute bottom-[14%] left-[1.8%] cursor-pointer w-[40%] lg:w-[29.1%] max-w-none lg:max-w-[300px]"
           onClick={handleVideoClick}
         >
-          <div className="relative w-full pb-[56.25%] rounded-lg overflow-hidden">
-            <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-              <span className="text-white text-4xl">▶️</span>
-            </div>
+          <div className="relative w-full pb-[56.25%]">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-md"
+              style={{
+                borderRadius: '10px',
+                pointerEvents: 'auto',
+              }}
+            >
+              <source src="https://aniruddhagps.com/quantumsenses/final-demo_editted.mp4"  type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
       </div>
 
-      {/* Video Modal */}
+      {/* Modal with Fullscreen Video */}
       {isModalOpen && (
         <div
-          className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
           onClick={handleCloseModal}
         >
           <div
@@ -114,35 +134,28 @@ const Hero = () => {
           >
             <button
               onClick={handleCloseModal}
-              className="absolute -top-10 right-0 text-white hover:text-gray-300 text-xl z-10"
+              className="absolute top-2 right-2 text-gray-600 hover:text-gray-800 z-10"
             >
               ✕
             </button>
-            <div className="relative pb-[56.25%] h-0 rounded-lg overflow-hidden">
-              <div className="absolute inset-0 bg-black flex items-center justify-center">
-                <span className="text-white text-4xl">Video Player Placeholder</span>
-              </div>
+            <div className="relative pb-[56.25%] h-0">
+              <video
+  ref={videoRef}
+  className="absolute top-0 left-0 w-[100vw] h-[70vh] rounded-md"
+  controls
+  autoPlay
+  muted={false}
+  volume={1.0}  // Ensure max volume
+>
+  <source src="https://aniruddhagps.com/quantumsenses/final-demo_editted.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
             </div>
           </div>
         </div>
       )}
-
-      <style jsx>{`
-        .custom-cursor {
-          font-family: monospace;
-          animation: blink 0.7s infinite;
-          position: absolute;
-          bottom: 0;
-          right: -0.5em;
-          font-size: 1em;
-        }
-        @keyframes blink {
-          0%, 100% { opacity: 0 }
-          50% { opacity: 1 }
-        }
-      `}</style>
     </section>
   );
-};
+}
 
 export default Hero;
