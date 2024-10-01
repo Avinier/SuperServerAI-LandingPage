@@ -123,7 +123,7 @@ function Hero() {
             <div className="relative pb-[56.25%] h-0">
               <video
   ref={videoRef}
-  className="absolute top-0 left-0 w-[100vw] h-[70vh] rounded-md"
+  className="absolute top-0 left-0 rounded-md"
   controls
   autoPlay
   muted={false}
