@@ -31,52 +31,55 @@ function Hero() {
       <div className="w-full lg:w-1/2 mb-8 lg:mb-0 lg:pr-8">
         <div className="lg:text-left max-w-xl mx-auto lg:mx-4">
           <h1 className="text-3xl text-center sm:text-3xl lg:text-4xl xl:text-4xl leading-tight font-bold mb-4 font-heading text-text">
-          Seamlessly{' '}
-      <span className="relative mr-3 text-secondary">
-        <TypeAnimation
-          sequence={[
-            'Deploy',
-            3000,
-            'Manage',
-            3000,
-            'Secure',
-            3000,
-          ]}
-          wrapper="span"
-          speed={40}
-          style={{ display: 'inline-block' }}
-          repeat={Infinity}
-          cursor={false}
-        />
-        <span className="custom-cursor">|</span>
-      </span>
-      <br />your code, with ZERO knowledge of devops.
-      <style jsx>{`
-        .custom-cursor {
-          font-family: 'Courier New', monospace;
-          animation: blink 0.7s infinite;
-          position: absolute;
-          bottom: -0.1em;
-          right: -0.5em;
-          font-size:60px;
-        }
-        @keyframes blink {
-          0% { opacity: 0 }
-          50% { opacity: 1 }
-          100% { opacity: 0 }
-        }
-      `}</style>
+            Seamlessly
+            <br className="block lg:hidden" /> {/* Line break for mobile */}
+            <div className="relative inline-block">
+              <TypeAnimation
+                sequence={[
+                  'Deploy',
+                  3000,
+                  'Manage',
+                  3000,
+                  'Secure',
+                  3000,
+                ]}
+                wrapper="span"
+                speed={40}
+                className="text-secondary"
+                repeat={Infinity}
+                cursor={false}
+              />
+              <span className="custom-cursor">|</span>
+            </div>
+            <br />
+            your code, with ZERO knowledge of devops.
           </h1>
+          <style jsx>{`
+            .custom-cursor {
+              font-family: 'Courier New', monospace;
+              animation: blink 0.7s infinite;
+              display: inline-block;
+              margin-left: 2px;
+              font-size: 1em;
+              line-height: 1;
+              vertical-align: baseline;
+            }
+            @keyframes blink {
+              0% { opacity: 0 }
+              50% { opacity: 1 }
+              100% { opacity: 0 }
+            }
+          `}</style>
           <p className="text-base text-center sm:text-lg lg:text-xl text-text mb-6 font-body">
             We offer AI-powered cloud services to small businesses and
-            developers to deploy, manage and scale  their code.
+            developers to deploy, manage and scale their code.
           </p>
           <div className="flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
             <a
               href="https://hu56kt7hdn2.typeform.com/to/vD8NjERN"
               target="_blank"
               rel="noopener noreferrer"
-              className={`bg-secondary text-background lg:mx-auto sm:mx-12 text-center px-6 py-3 rounded-md text-base sm:text-lg font-body  font-bold ${btnAnimation}`}
+              className={`bg-secondary text-background lg:mx-auto sm:mx-12 text-center px-6 py-3 rounded-md text-base sm:text-lg font-body font-bold ${btnAnimation}`}
             >
               Join Waitlist
             </a>
@@ -90,6 +93,7 @@ function Hero() {
         </div>
       </div>
 
+      {/* Rest of the component remains unchanged */}
       {/* Image and Video Container */}
       <div className="hidden lg:block relative w-1/2">
         <img
@@ -98,7 +102,6 @@ function Hero() {
           className="w-full h-auto rounded-lg"
         />
 
-        {/* Video Thumbnail */}
         <div
           className="absolute bottom-[28.7%] left-[17.8%] cursor-pointer w-[40%] lg:w-[51.7%] max-w-none"
           onClick={handleVideoClick}
@@ -115,7 +118,7 @@ function Hero() {
                 pointerEvents: 'auto',
               }}
             >
-              <source src="https://aniruddhagps.com/quantumsenses/final-demo_editted.mp4"  type="video/mp4" />
+              <source src="https://aniruddhagps.com/quantumsenses/final-demo_editted.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
@@ -140,16 +143,16 @@ function Hero() {
             </button>
             <div className="relative pb-[56.25%] h-0">
               <video
-  ref={videoRef}
-  className="absolute top-0 left-0 rounded-md"
-  controls
-  autoPlay
-  muted={false}
-  volume={1.0}  // Ensure max volume
->
-  <source src="https://aniruddhagps.com/quantumsenses/final-demo_editted.mp4" type="video/mp4" />
-  Your browser does not support the video tag.
-</video>
+                ref={videoRef}
+                className="absolute top-0 left-0 rounded-md"
+                controls
+                autoPlay
+                muted={false}
+                volume={1.0}
+              >
+                <source src="https://aniruddhagps.com/quantumsenses/final-demo_editted.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
         </div>
