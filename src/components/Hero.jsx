@@ -103,7 +103,7 @@ function Hero() {
         />
 
         <div
-          className="absolute bottom-[28.7%] left-[17.8%] cursor-pointer w-[40%] lg:w-[51.7%] max-w-none"
+          className="absolute bottom-[18.9%] left-[18.8%] cursor-pointer w-[40%] lg:w-[53.62%] max-w-none"
           onClick={handleVideoClick}
         >
           <div className="relative w-full pb-[56.25%]">
