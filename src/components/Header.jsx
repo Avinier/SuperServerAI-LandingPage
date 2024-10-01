@@ -1,37 +1,21 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 
 const useScrollDirection = () => {
-  const [scrollDirection, setScrollDirection] = useState("up");
-  useEffect(() => {
-    let lastScrollY = window.scrollY;
-    const updateScrollDirection = () => {
-      const scrollY = window.scrollY;
-      const direction = scrollY > lastScrollY ? "down" : "up";
-      if (direction !== scrollDirection && (scrollY - lastScrollY > 10 || scrollY - lastScrollY < -10)) {
-        setScrollDirection(direction);
-      }
-      lastScrollY = scrollY > 0 ? scrollY : 0;
-    };
-
-    window.addEventListener("scroll", updateScrollDirection);
-    return () => {
-      window.removeEventListener("scroll", updateScrollDirection);
-    }
-  }, [scrollDirection]);
-  return scrollDirection;
+  // ... (keep this hook unchanged)
 };
 
 const Logo = () => {
   return (
     <div className="flex-shrink-0">
-      <a href="#" className="text-xl lg:text-2xl font-heading text-primary">
-        SuperServer<span className="text-primary text-2xl lg:text-3xl">.</span><span className="text-secondary">AI</span>
-      </a>
+      <Link to="/" className="text-xl lg:text-2xl font-heading text-primary">
+        SuperServer<span className="text-accent text-2xl lg:text-3xl">.</span><span className="text-secondary">AI</span>
+      </Link>
     </div>
   );
 };
 
-const NavItem = ({ title, href, subitems, isMobile, closeMenu }) => {
+const NavItem = ({ title, to, subitems, isMobile, closeMenu }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -49,16 +33,7 @@ const NavItem = ({ title, href, subitems, isMobile, closeMenu }) => {
   `;
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    // ... (keep this effect unchanged)
   }, []);
 
   if (subitems) {
@@ -79,32 +54,18 @@ const NavItem = ({ title, href, subitems, isMobile, closeMenu }) => {
   }
 
   return (
-    <a
-      href={href}
+    <Link
+      to={to}
       className={navItemStyle}
       onClick={isMobile ? closeMenu : undefined}
     >
       {title}
-    </a>
+    </Link>
   );
 };
 
 const Arrow = ({ isOpen }) => {
-  return (
-    <svg
-      className={`ml-1 h-4 w-4 transform transition-transform duration-200 ${isOpen ? "rotate-180" : ""
-        }`}
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 20 20"
-      fill="currentColor"
-    >
-      <path
-        fillRule="evenodd"
-        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-        clipRule="evenodd"
-      />
-    </svg>
-  );
+  // ... (keep this component unchanged)
 };
 
 const Dropdown = ({ subitems, isMobile, closeMenu }) => {
@@ -123,15 +84,15 @@ const Dropdown = ({ subitems, isMobile, closeMenu }) => {
               {section.title}
             </h3>
             {section.items.map((item, itemIndex) => (
-              <a
+              <Link
                 key={itemIndex}
-                href={item.href}
+                to={item.to}
                 className="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-gray-100 hover:text-primary transition-colors duration-150 ease-in-out"
                 onClick={isMobile ? closeMenu : undefined}
               >
                 <div className="font-medium">{item.title}</div>
                 <p className="text-xs text-gray-500 mt-1">{item.description}</p>
-              </a>
+              </Link>
             ))}
           </div>
         ))}
@@ -141,7 +102,7 @@ const Dropdown = ({ subitems, isMobile, closeMenu }) => {
 };
 
 const navItems = [
-  { title: "Why Us", href: "#" },
+  { title: "About Us", to: "/about" },
   {
     title: "Products",
     subitems: [
@@ -149,22 +110,15 @@ const navItems = [
         title: "PRODUCTS",
         items: [
           {
-            title: "Payroll",
-            description: "Automated deductions, direct deposit and tax filing",
-            href: "#",
+            title: "AI Chatbot",
+            description: "Automate your server deployments with our chatbot",
+            to: "/products/ai-chatbot",
           },
-          // Add more product items here
-        ],
-      },
-      {
-        title: "FEATURES",
-        items: [
           {
-            title: "Time and attendance",
-            description: "Time tracking and time-off requests",
-            href: "#",
+            title: "Dashboard",
+            description: "Monitor your deployments and get real-time insights",
+            to: "/products/dashboard",
           },
-          // Add more feature items here
         ],
       },
     ],
@@ -181,26 +135,26 @@ const navItems = [
       // Add subitems for Contact Sales here
     ],
   },
-  { title: "Pricing", href: "#" },
+  { title: "Pricing", to: "/pricing" },
 ];
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const scrollDirection = useScrollDirection();
   const [showHeader, setShowHeader] = useState(true);
+  
   useEffect(() => {
-    if (scrollDirection === 'up') {
-      setShowHeader(true);
-    } else if (scrollDirection === 'down') {
-      setShowHeader(false);
-    }
+    // ... (keep this effect unchanged)
   }, [scrollDirection]);
+  
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+  
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
+  
   return (
     <header className={`bg-background shadow-md hover:shadow-lg py-3 lg:py-4 w-full flex justify-around sticky top-0 z-20 transition-all duration-300 ease-in-out ${showHeader ? "translate-y-0" : "-translate-y-full"}`}>
       <div className="container px-3 lg:px-8">
@@ -236,19 +190,20 @@ function Header() {
                   closeMenu={closeMenu}
                 />
               ))}
-              <a
-                href="#"
+              <Link
+                to="/signin"
                 className="text-gray-600 font-body hover:text-gray-900 text-sm lg:text-base"
                 onClick={closeMenu}
               >
                 Sign in
-              </a>
-              <button
+              </Link>
+              <Link
+                to="/signup"
                 className="bg-secondary text-text px-3 py-1.5 rounded-md text-sm lg:text-base font-body transition-all duration-300 hover:bg-accent hover:shadow-lg transform hover:scale-105 hover:-translate-y-1"
                 onClick={closeMenu}
               >
                 Sign Up
-              </button>
+              </Link>
             </nav>
           </div>
 
@@ -260,25 +215,23 @@ function Header() {
           </nav>
 
           <div className="hidden md:flex items-center space-x-3">
-            <a
-              href="https://hu56kt7hdn2.typeform.com/to/vD8NjERN"
-              target="_blank"
+            <Link
+              to="/signin"
               className="text-gray-600 font-body hover:text-gray-900 text-base mt-1 mr-2"
             >
               Sign in
-            </a>
-            <a
-              href="https://hu56kt7hdn2.typeform.com/to/vD8NjERN"
-              target="_blank"
-              className="bg-secondary text-text px-6 py-1 pt-1.5 rounded-md text-base font-body transition-all duration-300 hover:bg-accent hover:shadow-lg transform hover:scale-105 hover:-translate-y-1">
+            </Link>
+            <Link
+              to="/signup"
+              className="bg-secondary text-text px-6 py-1 pt-1.5 rounded-md text-base font-body transition-all duration-300 hover:bg-accent hover:shadow-lg transform hover:scale-105 hover:-translate-y-1"
+            >
               Sign Up
-            </a>
+            </Link>
           </div>
         </div>
       </div>
     </header>
   );
 }
+
 export default Header;
-
-
