@@ -49,7 +49,7 @@ function Hero() {
                 repeat={Infinity}
                 cursor={false}
               />
-              <span className="custom-cursor text-text">|</span>
+              <span className="custom-cursor text-secondary">|</span>
             </div>
             <br />
             your code, with ZERO knowledge of devops.
