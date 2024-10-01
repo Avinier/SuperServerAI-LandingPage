@@ -31,25 +31,7 @@ function Hero() {
       <div className="w-full lg:w-1/2 mb-8 lg:mb-0 lg:pr-8">
         <div className="lg:text-left max-w-xl mx-auto lg:mx-4">
           <h1 className="text-3xl text-center sm:text-3xl lg:text-4xl xl:text-4xl leading-tight font-bold mb-4 font-heading text-text">
-          Seamlessly{' '}
-      <span className="relative mr-3 text-secondary">
-        <TypeAnimation
-          sequence={[
-            'Deploy',
-            3000,
-            'Manage',
-            3000,
-            'Secure',
-            3000,
-          ]}
-          wrapper="span"
-          speed={40}
-          style={{ display: 'inline-block' }}
-          repeat={Infinity}
-          cursor={false}
-        />
-        <span className="custom-cursor">|</span>
-      </span>
+          Seamlessly Deploy
       <br />your code, with ZERO knowledge of devops.
       <style jsx>{`
         .custom-cursor {
