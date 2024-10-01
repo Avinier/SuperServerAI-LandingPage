@@ -59,8 +59,8 @@ function Hero() {
               font-family: 'Courier New', monospace;
               animation: blink 0.7s infinite;
               display: inline-block;
-              margin-left: 2px;
-              font-size: 1em;
+              margin-left: -2px;
+              font-size: 2em;
               line-height: 1;
               vertical-align: baseline;
             }
