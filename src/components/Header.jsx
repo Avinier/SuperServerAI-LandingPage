@@ -112,12 +112,12 @@ const navItems = [
           {
             title: "AI Chatbot",
             description: "Automate your server deployments with our chatbot",
-            to: "/products/ai-chatbot",
+            to: "http://dev.quantumsenses.com:3002/Welcome Chat",
           },
           {
             title: "Dashboard",
             description: "Monitor your deployments and get real-time insights",
-            to: "/products/dashboard",
+            to: "http://dev.quantumsenses.com:3002/dashboard",
           },
         ],
       },
