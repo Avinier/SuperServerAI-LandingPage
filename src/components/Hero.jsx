@@ -37,11 +37,11 @@ function Hero() {
               <TypeAnimation
                 sequence={[
                   'Deploy',
-                  3000,
+                  2000,
                   'Manage',
-                  3000,
+                  2000,
                   'Secure',
-                  3000,
+                  2000,
                 ]}
                 wrapper="span"
                 speed={60}
