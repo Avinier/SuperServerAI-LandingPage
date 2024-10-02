@@ -44,7 +44,7 @@ function Hero() {
                   3000,
                 ]}
                 wrapper="span"
-                speed={60}
+                speed={80}
                 className="text-secondary"
                 repeat={Infinity}
                 cursor={false}
