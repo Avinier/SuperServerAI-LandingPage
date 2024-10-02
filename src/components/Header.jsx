@@ -216,13 +216,13 @@ function Header() {
 
           <div className="hidden md:flex items-center space-x-3">
             <Link
-              to="/signin"
+              to="http://dev.quantumsenses.com:3002/sign-in"
               className="text-gray-600 font-body hover:text-gray-900 text-base mt-1 mr-2"
             >
               Sign in
             </Link>
             <Link
-              to="/signup"
+              to="http://dev.quantumsenses.com:3002/sign-up"
               className="bg-secondary text-text px-6 py-1 pt-1.5 rounded-md text-base font-body transition-all duration-300 hover:bg-accent hover:shadow-lg transform hover:scale-105 hover:-translate-y-1"
             >
               Sign Up
