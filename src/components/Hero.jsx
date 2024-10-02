@@ -81,7 +81,7 @@ function Hero() {
               rel="noopener noreferrer"
               className={`bg-secondary text-background lg:mx-auto sm:mx-12 text-center px-6 py-3 rounded-md text-base sm:text-lg font-body font-bold ${btnAnimation}`}
             >
-              Join Waitlist
+              Explore More
             </a>
             <button
               onClick={handleVideoClick}
