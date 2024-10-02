@@ -191,14 +191,14 @@ function Header() {
                 />
               ))}
               <Link
-                to="http://dev.quantumsenses.com:3002/sign-in"
+                to="/signin"
                 className="text-gray-600 font-body hover:text-gray-900 text-sm lg:text-base"
                 onClick={closeMenu}
               >
                 Sign in
               </Link>
               <Link
-                to="http://dev.quantumsenses.com:3002/sign-up"
+                to="/signup"
                 className="bg-secondary text-text px-3 py-1.5 rounded-md text-sm lg:text-base font-body transition-all duration-300 hover:bg-accent hover:shadow-lg transform hover:scale-105 hover:-translate-y-1"
                 onClick={closeMenu}
               >
