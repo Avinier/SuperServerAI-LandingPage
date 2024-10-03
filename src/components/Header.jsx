@@ -155,8 +155,7 @@ const navItems = [
     ],
   },
   {
-    title: "Contact Us",
-    to: "/contact"
+    title: "Contact Sales", to: "/contact",
   },
   { title: "Pricing", to: "/#pricing" },
 ];
