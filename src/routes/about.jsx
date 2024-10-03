@@ -75,27 +75,6 @@ const AboutPage = () => {
               </div>
             </div>
           </motion.div>
-
-          <motion.div 
-            className="bg-primary text-white rounded-lg shadow-lg p-8"
-            initial="hidden"
-            animate="visible"
-            variants={fadeIn}
-            transition={{ duration: 0.5, delay: 0.8 }}
-          >
-            <h2 className="text-3xl font-semibold mb-4 text-center">Join Us on Our Journey</h2>
-            <p className="text-center mb-6">
-              We're always looking for passionate individuals to join our team and help shape the future of cloud infrastructure management.
-            </p>
-            <div className="text-center">
-              <a 
-                href="/careers" 
-                className="inline-block bg-secondary text-white py-2 px-6 rounded-md hover:bg-accent transition-colors duration-300"
-              >
-                View Open Positions
-              </a>
-            </div>
-          </motion.div>
         </div>
       </main>
     </div>
