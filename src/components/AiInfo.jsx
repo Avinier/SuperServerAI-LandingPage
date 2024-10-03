@@ -9,9 +9,9 @@ const AiInfo = () => {
   };
 
   const sections = [
-    { title: "Custom Trained LLM", content: "Content for section 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
-    { title: "AI-powered Dashboard with Analytics", content: "Content for section 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
-    { title: "All-in-one Cloud Solutions, fully automated", content: "Content for section 3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+    { title: "Custom Trained LLM", content: "We have a custom fine-tuned Large Language Model designed to seamlessly deploy your projects, specifically catering to all your deployment needs." },
+    { title: "AI-powered Dashboard with Analytics", content: "A comprehensive dashboard, simplified by AI, for all detailed insights about your deployments. Along with powerful data visualizations." },
+    { title: "All-in-one Cloud Solutions, fully automated", content: "We have simplified it like never before. At record low costs." },
   ];
 
   return (
