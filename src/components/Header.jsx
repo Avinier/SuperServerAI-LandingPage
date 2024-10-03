@@ -212,7 +212,7 @@ function Header() {
             ))}
           </nav>
 
-          <div className="hidden md:flex items-center space-x-3">
+          {/* <div className="hidden md:flex items-center space-x-3">
             <Link
               to="/signin"
               className="text-gray-600 font-body hover:text-gray-900 text-base mt-1 mr-2"
@@ -225,7 +225,7 @@ function Header() {
             >
               Sign Up
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </header>
