@@ -103,32 +103,32 @@ const Dropdown = ({ subitems, isMobile, closeMenu }) => {
 
 const navItems = [
   { title: "About Us", to: "/about" },
-  {
-    title: "Products",
-    subitems: [
-      {
-        title: "PRODUCTS",
-        items: [
-          {
-            title: "AI Chatbot",
-            description: "Automate your server deployments with our chatbot",
-            to: "/products/ai-chatbot",
-          },
-          {
-            title: "Dashboard",
-            description: "Monitor your deployments and get real-time insights",
-            to: "/products/dashboard",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Solutions",
-    subitems: [
-      // Add subitems for Solutions here
-    ],
-  },
+  // {
+  //   title: "Products",
+  //   subitems: [
+  //     {
+  //       title: "PRODUCTS",
+  //       items: [
+  //         {
+  //           title: "AI Chatbot",
+  //           description: "Automate your server deployments with our chatbot",
+  //           to: "/products/ai-chatbot",
+  //         },
+  //         {
+  //           title: "Dashboard",
+  //           description: "Monitor your deployments and get real-time insights",
+  //           to: "/products/dashboard",
+  //         },
+  //       ],
+  //     },
+  //   ],
+  // },
+  // {
+  //   title: "Solutions",
+  //   subitems: [
+  //     // Add subitems for Solutions here
+  //   ],
+  // },
   {
     title: "Contact Sales", to: "/contact",
   },
