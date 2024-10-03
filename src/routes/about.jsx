@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from '../components/Header';
 import { motion } from 'framer-motion'; // You'll need to install framer-motion
 
 const AboutPage = () => {
@@ -10,6 +11,7 @@ const AboutPage = () => {
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <main className="flex-grow py-16">
+        <Header />
         <div className="container mx-auto px-4">
           <motion.h1 
             className="text-5xl font-bold text-primary mb-12 text-center"
