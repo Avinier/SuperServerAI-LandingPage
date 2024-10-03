@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import './index.css'
 import AboutPage from './routes/about.jsx';
+import Header from './components/Header.jsx';
 
 const router = createBrowserRouter([
   {
@@ -17,7 +18,10 @@ const router = createBrowserRouter([
   },
   {
     path: "/about",
-    element: <AboutPage/>
+    element: <>
+      <Header/>
+      <AboutPage/>
+    </>
   }
 ]);
 
