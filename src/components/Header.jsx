@@ -130,10 +130,7 @@ const navItems = [
     ],
   },
   {
-    title: "Contact Sales",
-    subitems: [
-      // Add subitems for Contact Sales here
-    ],
+    title: "Contact Sales", to: "/contact",
   },
   { title: "Pricing", to: "/pricing" },
 ];
