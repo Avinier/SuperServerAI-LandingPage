@@ -187,7 +187,7 @@ function Header() {
                   closeMenu={closeMenu}
                 />
               ))}
-              <Link
+              {/* <Link
                 to="/signin"
                 className="text-gray-600 font-body hover:text-gray-900 text-sm lg:text-base"
                 onClick={closeMenu}
@@ -200,7 +200,7 @@ function Header() {
                 onClick={closeMenu}
               >
                 Sign Up
-              </Link>
+              </Link> */}
             </nav>
           </div>
 
@@ -209,6 +209,12 @@ function Header() {
             {navItems.map((item, index) => (
               <NavItem key={index} {...item} />
             ))}
+            <Link
+              to="/https://hu56kt7hdn2.typeform.com/to/vD8NjERN"
+              className="bg-secondary text-white px-6 py-1 pt-1.5 rounded-md text-base font-body transition-all duration-300 hover:bg-accent hover:shadow-lg transform hover:scale-105 hover:-translate-y-1"
+            >
+              Join Waitlist
+            </Link>
           </nav>
 
           {/* <div className="hidden md:flex items-center space-x-3">
@@ -225,12 +231,7 @@ function Header() {
               Sign Up
             </Link>
           </div> */}
-          <Link
-              to="/https://hu56kt7hdn2.typeform.com/to/vD8NjERN"
-              className="bg-secondary text-white px-6 py-1 pt-1.5 rounded-md text-base font-body transition-all duration-300 hover:bg-accent hover:shadow-lg transform hover:scale-105 hover:-translate-y-1"
-            >
-              Join Waitlist
-            </Link>
+
         </div>
       </div>
     </header>
