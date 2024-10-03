@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from 'react';
 
 const PricingCard = ({ title, price, description, features, buttonText, highlight }) => (
   <div className="relative flex flex-col min-h-[50%] min-w-[25%] p-6 bg-white rounded-lg shadow-lg overflow-hidden">
@@ -33,7 +33,7 @@ const PricingCard = ({ title, price, description, features, buttonText, highligh
   </div>
 );
 
-function Pricing() {
+const Pricing = forwardRef((props, ref) =>{
   const plans = [
     {
       title: "DEVELOPER",
@@ -80,7 +80,7 @@ function Pricing() {
   ];
 
   return (
-    <section className="py-12 md:py-20 bg-background">
+    <section ref={ref} className="py-12 md:py-20 bg-background">
       <div className="container mx-auto px-4">
         <h2 className="text-[50px] md:text-5xl font-heading text-center text-text">
           Pricing
@@ -100,6 +100,6 @@ function Pricing() {
       </div>
     </section>
   );
-}
+});
 
 export default Pricing;
