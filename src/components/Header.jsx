@@ -103,6 +103,32 @@ const Dropdown = ({ subitems, isMobile, closeMenu }) => {
 
 const navItems = [
   { title: "About Us", to: "/about" },
+  // {
+  //   title: "Products",
+  //   subitems: [
+  //     {
+  //       title: "PRODUCTS",
+  //       items: [
+  //         {
+  //           title: "AI Chatbot",
+  //           description: "Automate your server deployments with our chatbot",
+  //           to: "/products/ai-chatbot",
+  //         },
+  //         {
+  //           title: "Dashboard",
+  //           description: "Monitor your deployments and get real-time insights",
+  //           to: "/products/dashboard",
+  //         },
+  //       ],
+  //     },
+  //   ],
+  // },
+  // {
+  //   title: "Solutions",
+  //   subitems: [
+  //     // Add subitems for Solutions here
+  //   ],
+  // },
   {
     title: "Products",
     subitems: [
@@ -204,7 +230,7 @@ function Header() {
                   closeMenu={closeMenu}
                 />
               ))}
-              <Link
+              {/* <Link
                 to="/signin"
                 className="text-gray-600 font-body hover:text-gray-900 text-sm lg:text-base"
                 onClick={closeMenu}
@@ -217,7 +243,7 @@ function Header() {
                 onClick={closeMenu}
               >
                 Sign Up
-              </Link>
+              </Link> */}
             </nav>
           </div>
 
@@ -226,6 +252,12 @@ function Header() {
             {navItems.map((item, index) => (
               <NavItem key={index} {...item} />
             ))}
+            <Link
+              to="https://hu56kt7hdn2.typeform.com/to/vD8NjERN"
+              className="bg-secondary text-white px-6 py-1 pt-1.5 rounded-md text-base font-body transition-all duration-300"
+            >
+              Join Waitlist
+            </Link>
           </nav>
 
           {/* <div className="hidden md:flex items-center space-x-3">
@@ -242,6 +274,7 @@ function Header() {
               Sign Up
             </Link>
           </div> */}
+
         </div>
       </div>
     </header>
