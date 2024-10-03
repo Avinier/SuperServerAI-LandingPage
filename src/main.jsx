@@ -20,6 +20,7 @@ const router = createBrowserRouter([
   {
     path: "/about",
     element: <>
+      <Header/>
       <AboutPage/>
     </>
   },
