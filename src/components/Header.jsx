@@ -225,6 +225,12 @@ function Header() {
               Sign Up
             </Link>
           </div> */}
+          <Link
+              to="/https://hu56kt7hdn2.typeform.com/to/vD8NjERN"
+              className="bg-secondary text-text px-6 py-1 pt-1.5 rounded-md text-base font-body transition-all duration-300 hover:bg-accent hover:shadow-lg transform hover:scale-105 hover:-translate-y-1"
+            >
+              Waitlist
+            </Link>
         </div>
       </div>
     </header>
