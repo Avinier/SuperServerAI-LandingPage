@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../components/Header';
+import Header from './Header'; // Make sure this path is correct
 import { motion } from 'framer-motion'; // You'll need to install framer-motion
 
 const AboutPage = () => {

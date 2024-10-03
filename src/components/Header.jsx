@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const useScrollDirection = () => {
   // ... (keep this hook unchanged)
@@ -16,17 +16,6 @@ const Logo = () => {
 };
 
 const NavItem = ({ title, to, subitems, isMobile, closeMenu }) => {
-  if (title === "Pricing") {
-    return (
-      <a
-        href="/#pricing"
-        className="text-gray-700 font-body text-sm lg:text-base flex items-center py-2 px-3 rounded-md transition-all duration-200 ease-in-out hover:bg-gray-100 hover:text-primary"
-        onClick={handlePricingClick}
-      >
-        {title}
-      </a>
-    );
-  }
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -46,20 +35,6 @@ const NavItem = ({ title, to, subitems, isMobile, closeMenu }) => {
   useEffect(() => {
     // ... (keep this effect unchanged)
   }, []);
-
-  const handlePricingClick = (e) => {
-    e.preventDefault();
-    if (location.pathname === '/') {
-      // If we're on the home page, scroll to the pricing section
-      pricingRef.current?.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      // If we're on a different page, navigate to home and then scroll
-      window.location.href = '/#pricing';
-    }
-    if (isMenuOpen) {
-      closeMenu();
-    }
-  };
 
   if (subitems) {
     return (
@@ -157,14 +132,13 @@ const navItems = [
   {
     title: "Contact Sales", to: "/contact",
   },
-  { title: "Pricing", to: "/#pricing" },
+  { title: "Pricing", to: "/pricing" },
 ];
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const scrollDirection = useScrollDirection();
   const [showHeader, setShowHeader] = useState(true);
-  const location = useLocation();
   
   useEffect(() => {
     // ... (keep this effect unchanged)
