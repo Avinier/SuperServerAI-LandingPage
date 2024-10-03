@@ -107,26 +107,42 @@ const navItems = [
     title: "Products",
     subitems: [
       {
-        title: "PRODUCTS",
+        title: "AI Chatbot",
         items: [
           {
-            title: "AI Chatbot",
             description: "Automate your server deployments with our chatbot",
             to: "/products/ai-chatbot",
-          },
-          {
-            title: "Dashboard",
-            description: "Monitor your deployments and get real-time insights",
-            to: "/products/dashboard",
-          },
-        ],
+          }
+        ]
       },
+      {
+        title: "Dashboard",
+        items: [{
+          description: "Monitor your deployments and get real-time insights",
+          to: "/products/dashboard",
+        }]
+      }
     ],
   },
   {
     title: "Solutions",
     subitems: [
-      // Add subitems for Solutions here
+      {
+        title: "For founders",
+        items: [
+          {
+            description: "Automate your server deployments with our chatbot",
+            to: "/solutions/founders",
+          }
+        ]
+      },
+      {
+        title: "For developers",
+        items: [{
+          description: "Monitor your deployments and get real-time insights",
+          to: "/solutions/developers",
+        }]
+      }
     ],
   },
   {
