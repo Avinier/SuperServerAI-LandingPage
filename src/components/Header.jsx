@@ -142,7 +142,50 @@ const navItems = [
   //   ],
   // },
   {
-    title: "Contact Sales", to: "/contact",
+    title: "Products",
+    subitems: [
+      {
+        title: "AI Chatbot",
+        items: [
+          {
+            description: "Automate your server deployments with our chatbot",
+            to: "/products/ai-chatbot",
+          }
+        ]
+      },
+      {
+        title: "Dashboard",
+        items: [{
+          description: "Monitor your deployments and get real-time insights",
+          to: "/products/dashboard",
+        }]
+      }
+    ],
+  },
+  {
+    title: "Solutions",
+    subitems: [
+      {
+        title: "For founders",
+        items: [
+          {
+            description: "Automate your server deployments with our chatbot",
+            to: "/solutions/founders",
+          }
+        ]
+      },
+      {
+        title: "For developers",
+        items: [{
+          description: "Monitor your deployments and get real-time insights",
+          to: "/solutions/developers",
+        }]
+      }
+    ],
+  },
+  {
+    title: "Contact Us",
+    to: "/contact"
   },
   { title: "Pricing", to: "/#pricing" },
 ];

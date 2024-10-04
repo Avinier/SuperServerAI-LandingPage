@@ -24,30 +24,29 @@ const useInView = (options) => {
 };
 
 const personas = [
-  { id: "llms", label: "I DEVELOP WITH LLMs", icon: "👨‍💻" },
-  { id: "models", label: "I TRAIN MODELS", icon: "🧠" },
-  { id: "projects", label: "I LEAD ML PROJECTS", icon: "👩‍💼" },
-  { id: "production", label: "I MANAGE MODEL PRODUCTION", icon: "🏭" },
+  { id: "llms", label: "I AM A FOUNDER", icon: "🤵" },
+  { id: "models", label: "I AM A NON-DEVOPS DEVELOPER", icon: "🧑‍💻" },
+  { id: "projects", label: "I MANAGE TEAMS", icon: "👩‍💼" },
 ];
 
 const contentData = {
   llms: {
-    title: "FOR GENERATIVE AI SOFTWARE DEVELOPERS",
-    description: "Designed to help software developers deploy GenAI applications with confidence",
+    title: "FOR TECHNICAL/NON-TECHNICAL FOUNDERS",
+    description: "Founders who don't have a dedicated server team and don't want to spend on the human resources",
     sections: [
       {
         image: "/images/workflow-image1.jpg",
-        info: "Streamline your LLM development process with our intuitive tools and APIs, enabling rapid prototyping and seamless integration.",
+        info: "With our intuitive chatbot and easy-to-understand dashboard, founders can now work on thier own business, without worrying about code deployment!",
       }
     ],
   },
   models: {
-    title: "FOR MODEL TRAINERS AND RESEARCHERS",
-    description: "Empowering researchers and data scientists to train and refine ML models efficiently",
+    title: "FOR DEVELOPERS AND DEV TEAMS",
+    description: "Developers need not worry about serverside technicalities, and can build the things that matter.",
     sections: [
       {
         image: "/images/workflow-image1.jpg",
-        info: "Access powerful compute resources and collaborative environments to accelerate your model training and experimentation workflows.",
+        info: "Empowering developers and teams who don't have the skillset to handle serverside deployments, with our seamless deployment piplelines",
       },
     ],
   },
@@ -62,12 +61,12 @@ const contentData = {
     ],
   },
   production: {
-    title: "FOR ML OPERATIONS MANAGERS",
-    description: "Ensuring smooth deployment and management of ML models in production environments",
+    title: "FOR PROGRAM MANAGERS",
+    description: "Technical managers can also use our product and direct teams to do so.",
     sections: [
       {
         image: "/images/workflow-image1.jpg",
-        info: "Monitor model performance, manage versioning, and orchestrate deployments with our robust MLOps toolkit.",
+        info: "Monitor server deployments, get valuable insights, to handle costs, and manage your team well.",
       },
     ],
   },
