@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Features from './components/Features';
@@ -30,6 +31,15 @@ function GoogleAnalyticsTag() {
 }
 
 function App() {
+  const pricingRef = useRef(null);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash === '#pricing') {
+      pricingRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [location]);
+
   return (
     <div className="font-sans">
       <GoogleAnalyticsTag />
@@ -38,7 +48,9 @@ function App() {
       <Features />
       <WorkFlow />
       <AiInfo />    
-      <Pricing />
+      <div ref={pricingRef} id="pricing">
+        <Pricing />
+      </div>
       <Footer />
     </div>
   );

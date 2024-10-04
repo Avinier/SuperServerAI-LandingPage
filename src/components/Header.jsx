@@ -132,7 +132,7 @@ const navItems = [
   {
     title: "Contact Sales", to: "/contact",
   },
-  { title: "Pricing", to: "/pricing" },
+  { title: "Pricing", to: "/#pricing" },
 ];
 
 function Header() {
@@ -150,6 +150,17 @@ function Header() {
   
   const closeMenu = () => {
     setIsMenuOpen(false);
+  };
+
+  const handleNavItemClick = (e, item) => {
+    if (item.scrollTo) {
+      e.preventDefault();
+      const element = document.getElementById(item.scrollTo);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+      closeMenu();
+    }
   };
   
   return (
@@ -207,7 +218,10 @@ function Header() {
           {/* Desktop menu */}
           <nav className="hidden md:flex space-x-8">
             {navItems.map((item, index) => (
-              <NavItem key={index} {...item} />
+              <NavItem 
+                key={index} 
+                {...item} 
+              />
             ))}
             <Link
               to="https://hu56kt7hdn2.typeform.com/to/vD8NjERN"
