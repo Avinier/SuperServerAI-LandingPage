@@ -19,6 +19,18 @@ const NavItem = ({ title, to, subitems, isMobile, closeMenu }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
+  if (title === "Pricing") {
+    return (
+      <a
+        href="/#pricing"
+        className="text-gray-700 font-body text-sm lg:text-base flex items-center py-2 px-3 rounded-md transition-all duration-200 ease-in-out hover:bg-gray-100 hover:text-primary"
+        onClick={handlePricingClick}
+      >
+        {title}
+      </a>
+    );
+  }
+
   const navItemStyle = `
     text-gray-700 font-body text-sm lg:text-base
     flex items-center py-2 px-3 rounded-md
@@ -132,13 +144,28 @@ const navItems = [
   {
     title: "Contact Sales", to: "/contact",
   },
-  { title: "Pricing", to: "/pricing" },
+  { title: "Pricing", to: "/#pricing" },
 ];
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const scrollDirection = useScrollDirection();
   const [showHeader, setShowHeader] = useState(true);
+
+  const handlePricingClick = (e) => {
+    e.preventDefault();
+    if (location.pathname === '/') {
+      // If we're on the home page, scroll to the pricing section
+      pricingRef.current?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // If we're on a different page, navigate to home and then scroll
+      window.location.href = '/#pricing';
+    }
+    if (isMenuOpen) {
+      closeMenu();
+    }
+  };
+
   
   useEffect(() => {
     // ... (keep this effect unchanged)
@@ -187,7 +214,7 @@ function Header() {
                   closeMenu={closeMenu}
                 />
               ))}
-              {/* <Link
+              <Link
                 to="/signin"
                 className="text-gray-600 font-body hover:text-gray-900 text-sm lg:text-base"
                 onClick={closeMenu}
@@ -200,7 +227,7 @@ function Header() {
                 onClick={closeMenu}
               >
                 Sign Up
-              </Link> */}
+              </Link>
             </nav>
           </div>
 
@@ -209,15 +236,9 @@ function Header() {
             {navItems.map((item, index) => (
               <NavItem key={index} {...item} />
             ))}
-            <Link
-              to="https://hu56kt7hdn2.typeform.com/to/vD8NjERN"
-              className="bg-secondary text-white px-6 py-1 pt-1.5 rounded-md text-base font-body transition-all duration-300"
-            >
-              Join Waitlist
-            </Link>
           </nav>
 
-          {/* <div className="hidden md:flex items-center space-x-3">
+          <div className="hidden md:flex items-center space-x-3">
             <Link
               to="/signin"
               className="text-gray-600 font-body hover:text-gray-900 text-base mt-1 mr-2"
@@ -230,8 +251,7 @@ function Header() {
             >
               Sign Up
             </Link>
-          </div> */}
-
+          </div>
         </div>
       </div>
     </header>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import Root from './routes/root.jsx';
@@ -9,12 +9,17 @@ import {
 import './index.css'
 import AboutPage from './routes/about.jsx';
 import Header from './components/Header.jsx';
+import Pricing from './components/Pricing.jsx';
 import ContactSales from './routes/contact.jsx';
+
+const pricingRef = useRef(null);
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App/>,
+    element: <App>
+            <Pricing ref={pricingRef} />
+          </App>,
     errorElement: <Root/>
   },
   {
