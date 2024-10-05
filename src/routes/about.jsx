@@ -12,7 +12,7 @@ const AboutPage = () => {
       <main className="flex-grow py-16">
         <div className="container mx-auto px-4">
           <motion.h1 
-            className="text-5xl font-bold font-headings text-primary mb-12 text-center"
+            className="text-5xl font-bold font-heading text-primary mb-12 text-center"
             initial="hidden"
             animate="visible"
             variants={fadeIn}
