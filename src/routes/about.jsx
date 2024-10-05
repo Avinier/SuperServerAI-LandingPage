@@ -21,7 +21,7 @@ const AboutPage = () => {
             About SuperServer<span className="text-secondary">.AI</span>
           </motion.h1>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 font-body">
             <motion.div 
               className="bg-white rounded-lg shadow-lg p-8"
               initial="hidden"
