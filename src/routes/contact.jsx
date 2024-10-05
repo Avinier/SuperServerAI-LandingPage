@@ -23,9 +23,9 @@ const ContactSales = () => {
   return (
     <div className="bg-background min-h-screen py-16">
       <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-bold text-primary mb-8 text-center">Contact Sales</h1>
+        <h1 className="text-4xl font-bold text-primary mb-8 text-center font-heading">Contact Sales</h1>
         
-        <div className="bg-white rounded-lg shadow-md p-8 max-w-2xl mx-auto">
+        <div className="bg-white rounded-lg shadow-md p-8 max-w-2xl mx-auto font-body">
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
               <label htmlFor="name" className="block text-text font-medium mb-2">Name</label>
