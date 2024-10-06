@@ -31,7 +31,7 @@ const personas = [
 
 const contentData = {
   llms: {
-    title: "FOR TECHNICAL/NON-TECHNICAL FOUNDERS",
+    title: "FOR TECHNICAL, NON-TECHNICAL FOUNDERS",
     description: "Founders who don't have a dedicated server team and don't want to spend on the human resources",
     sections: [
       {
