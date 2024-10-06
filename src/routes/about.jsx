@@ -36,9 +36,9 @@ const AboutPage = () => {
               variants={fadeIn}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <h2 className="text-2xl font-semibold text-primary mb-4 text-center">Our Mission</h2>
+              <h2 className="text-2xl font-heading text-primary mb-4 text-center">Our Mission</h2>
               <p className="text-text text-center">
-                At SuperServer.AI, we're on a mission to revolutionize cloud infrastructure management. We believe in empowering developers and small businesses with powerful, scalable, and secure cloud solutions—without the need for extensive DevOps knowledge.
+                At SuperServer.AI, we're on a mission to revolutionize cloud infrastructure management through the power of AI. We believe in empowering developers and small businesses with powerful, scalable, and secure cloud solutions—without the need for extensive DevOps knowledge.
               </p>
             </motion.div>
 
@@ -49,9 +49,9 @@ const AboutPage = () => {
               variants={fadeIn}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              <h2 className="text-2xl font-semibold text-primary mb-4 text-center">Our Story</h2>
+              <h2 className="text-2xl font-heading text-primary mb-4 text-center">Our Story</h2>
               <p className="text-text text-center">
-                Founded in 2024, SuperServer.AI emerged from a shared frustration among developers spending more time on infrastructure than coding. Our team of passionate engineers and AI experts united to create a solution that lets developers focus on what they do best—building great software.
+                Founded in 2024, SuperServer.AI emerged from a shared frustration among four developers spending more time on infrastructure than coding. So we have united to create a solution that lets developers focus on what they do best—building great software.
               </p>
             </motion.div>
           </div>
