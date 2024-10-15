@@ -224,7 +224,7 @@ function Header() {
               />
             ))}
             <Link
-              to="https://hu56kt7hdn2.typeform.com/to/vD8NjERN"
+              to="/waitlist"
               className="bg-secondary text-white px-6 py-1 pt-2 rounded-md text-base font-body transition-all duration-300"
             >
               Join Waitlist

@@ -10,6 +10,7 @@ import './index.css'
 import AboutPage from './routes/about.jsx';
 import Header from './components/Header.jsx';
 import ContactSales from './routes/contact.jsx';
+import WaitlistForm from './routes/waitlistform.jsx';
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,13 @@ const router = createBrowserRouter([
     element: <>
       <Header/>
       <ContactSales/>
+    </>
+  },
+  {
+    path: "/waitlist",
+    element: <>
+      <Header/>
+      <WaitlistForm/>
     </>
   }
 ]);
