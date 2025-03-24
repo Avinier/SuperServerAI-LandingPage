@@ -71,7 +71,7 @@ function Hero() {
             }
           `}</style>
           <p className="text-base text-center sm:text-lg lg:text-xl text-text mb-6 font-body">
-            Your devops copilot is here. For real.
+            Your devops copilot is here wowowow. For real.
           </p>
           <div className="flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
             <a
