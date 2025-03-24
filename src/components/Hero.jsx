@@ -52,7 +52,7 @@ function Hero() {
               <span className="custom-cursor text-secondary">|</span>
             </div>
             <br />
-            your code, with ZERO knowledge of devops.
+            your code, with ZERO knowledge of devops
           </h1>
           <style jsx>{`
             .custom-cursor {
@@ -71,8 +71,7 @@ function Hero() {
             }
           `}</style>
           <p className="text-base text-center sm:text-lg lg:text-xl text-text mb-6 font-body">
-            We offer AI-powered cloud services to small businesses and
-            developers to deploy, manage and scale their code.
+            Your devops copilot. For real.
           </p>
           <div className="flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
             <a
